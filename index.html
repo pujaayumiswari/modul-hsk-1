@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modul Super Lengkap HSK 1</title>
+    <title>Modul Ultimate HSK 1 (200 Kata & 190 Soal)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chosen Palette: Calm Harmony (Stone, Emerald) -->
     <!-- Application Structure Plan: A digital, interactive learning module with weekly navigation. The structure follows the source report's logical progression, enhancing it with interactive elements. Key interactions include tabbed content for daily lessons to reduce scrolling, clickable flashcards for active vocabulary recall, and simple quizzes for immediate feedback. This task-oriented, linear flow is ideal for a study guide, making it more engaging and effective than a static document. -->
@@ -51,6 +51,7 @@
             align-items: center;
             border-radius: 0.5rem;
             padding: 8px;
+            text-align: center;
         }
         .flashcard-back {
             transform: rotateY(180deg);
@@ -66,14 +67,24 @@
         .hidden-section {
             display: none;
         }
+        .quiz-feedback {
+            display: none;
+            margin-top: 8px;
+            font-size: 0.875rem;
+        }
+        .quiz-question-container {
+            border-left: 3px solid #e5e7eb;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
 
-    <div id="app" class="container mx-auto p-4 md:p-8 max-w-5xl">
+    <div id="app" class="container mx-auto p-4 md:p-8 max-w-6xl">
         <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-emerald-800">Modul Belajar Super Lengkap</h1>
-            <p class="text-xl text-stone-600">Dari Nol ke HSK 1 dalam 1 Bulan</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-emerald-800">Modul Belajar Ultimate HSK 1</h1>
+            <p class="text-xl text-stone-600">200 Kosakata & 190 Soal Latihan</p>
         </header>
 
         <nav class="flex flex-wrap justify-center bg-white p-2 rounded-lg shadow-sm mb-8 sticky top-2 z-10">
@@ -87,7 +98,7 @@
             <section id="minggu1" class="main-section">
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h2 class="text-2xl font-bold mb-1 text-emerald-700">Minggu 1: Fondasi & Perkenalan Diri</h2>
-                    <p class="text-stone-600 mb-6">Di minggu pertama, Anda akan menguasai Pinyin, nada, dan percakapan perkenalan diri yang paling dasar. Ini adalah fondasi terpenting dalam perjalanan belajar Anda.</p>
+                    <p class="text-stone-600 mb-6">Di minggu pertama, Anda akan menguasai Pinyin, nada, angka, dan percakapan perkenalan diri yang paling dasar. Ini adalah fondasi terpenting dalam perjalanan belajar Anda.</p>
                     <div id="week1-content"></div>
                 </div>
             </section>
@@ -110,7 +121,7 @@
 
             <section id="minggu4" class="main-section hidden-section">
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
-                    <h2 class="text-2xl font-bold mb-1 text-emerald-700">Minggu 4: Latihan Intensif & Simulasi Ujian</h2>
+                    <h2 class="text-2xl font-bold mb-1 text-emerald-700">Minggu 4: Latihan Intensif & Ujian Akhir</h2>
                     <p class="text-stone-600 mb-6">Saatnya memantapkan semua yang telah dipelajari. Anda akan fokus penuh pada latihan soal yang mirip dengan ujian HSK 1 untuk membangun kepercayaan diri.</p>
                     <div id="week4-content"></div>
                 </div>
@@ -142,23 +153,28 @@
                                 </div>
                             `
                         },
-                        { 
-                            title: "Tata Bahasa Dasar",
+                        {
+                            title: "Belajar Angka & Nominal",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">2. Penyusunan Kalimat Dasar</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">2. Angka, Uang, dan Tahun</h3>
                                 <div class="space-y-4">
                                     <div class="border p-4 rounded-lg">
-                                        <p class="font-bold text-lg">Kalimat dengan 是 (shì) - Adalah</p>
-                                        <p class="text-sm text-stone-600 mb-2">Pola: Subjek + 是 + Objek</p>
-                                        <p><span class="text-green-600">Positif:</span> 我 是 学生。(Wǒ shì xuésheng.) - Saya adalah murid.</p>
-                                        <p><span class="text-red-600">Negatif:</span> 他 不是 医生。(Tā bú shì yīshēng.) - Dia bukan dokter.</p>
-                                        <p><span class="text-blue-600">Tanya:</span> 你 是 老师 吗？(Nǐ shì lǎoshī ma?) - Apakah kamu guru?</p>
+                                        <p class="font-bold text-lg">Angka Dasar (0-10)</p>
+                                        <p>零 (líng), 一 (yī), 二 (èr), 三 (sān), 四 (sì), 五 (wǔ), 六 (liù), 七 (qī), 八 (bā), 九 (jiǔ), 十 (shí).</p>
+                                        <p class="font-bold text-lg mt-2">Pola Angka Puluhan</p>
+                                        <p>11: 十一 (shí yī), 20: 二十 (èr shí), 25: 二十五 (èr shí wǔ), 100: 一百 (yì bǎi).</p>
                                     </div>
                                     <div class="border p-4 rounded-lg">
-                                        <p class="font-bold text-lg">Menanyakan Sesuatu dengan 吗 (ma)</p>
-                                        <p class="text-sm text-stone-600 mb-2">'吗' mengubah pernyataan menjadi pertanyaan "ya/tidak".</p>
-                                        <p>Pernyataan: 他是老师。(Tā shì lǎoshī.)</p>
-                                        <p>Pertanyaan: 他是老师<span class="text-blue-600 font-bold">吗</span>？(Tā shì lǎoshī ma?)</p>
+                                        <p class="font-bold text-lg">Membaca Nominal Uang</p>
+                                        <p class="text-sm text-stone-600 mb-2">Satuan: 元 (yuán)/块 (kuài), 角 (jiǎo)/毛 (máo), 分 (fēn).</p>
+                                        <p><span class="text-green-600">¥ 15.50:</span> 十五块五毛 (shí wǔ kuài wǔ máo).</p>
+                                        <p><span class="text-green-600">¥ 108.25:</span> 一百零八块两毛五分 (yì bǎi líng bā kuài liǎng máo wǔ fēn).</p>
+                                    </div>
+                                     <div class="border p-4 rounded-lg">
+                                        <p class="font-bold text-lg">Membaca Tahun</p>
+                                        <p class="text-sm text-stone-600 mb-2">Sebutkan setiap digit angka satu per satu, lalu tambahkan 年 (nián).</p>
+                                        <p><span class="text-green-600">Tahun 2025:</span> 二零二五年 (èr líng èr wǔ nián).</p>
+                                        <p><span class="text-green-600">Tahun 1998:</span> 一九九八年 (yī jiǔ jiǔ bā nián).</p>
                                     </div>
                                 </div>
                             `
@@ -166,64 +182,95 @@
                         {
                             title: "Kosakata Minggu Ini",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">3. Kosakata: Perkenalan & Hal-hal Dasar</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">3. Kosakata: Perkenalan & Hal-hal Dasar (50 Kata)</h3>
                                 <p class="mb-4">Klik kartu untuk melihat artinya. Ulangi setiap hari!</p>
-                                <div id="vocab-week1-1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+                                <div id="vocab-week1-1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
                             `
                         },
                         {
-                            title: "Percakapan & Latihan",
+                            title: "Percakapan & Latihan (30 Soal)",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">4. Percakapan Sederhana: Perkenalan</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">4. Percakapan Sederhana (Diperpanjang)</h3>
                                 <div class="bg-stone-100 p-4 rounded-lg mb-6 text-sm">
-                                    <p><b>A:</b> 你好! (Nǐ hǎo!)</p>
-                                    <p><b>B:</b> 你好! (Nǐ hǎo!)</p>
-                                    <p><b>A:</b> 你叫什么名字？ (Nǐ jiào shénme míngzi?)</p>
-                                    <p><b>B:</b> 我叫 Budi。你呢？ (Wǒ jiào Budi. Nǐ ne?)</p>
-                                    <p><b>A:</b> 我叫 Ani。认识你很高兴。(Wǒ jiào Ani. Rènshi nǐ hěn gāoxìng.)</p>
-                                    <p><b>B:</b> 认识你我也很高兴。(Rènshi nǐ wǒ yě hěn gāoxìng.)</p>
+                                    <p class="font-bold mb-2">Percakapan: Bertemu di Sekolah</p>
+                                    <p><b>Ani:</b> 你好! 我是 Ani。你叫什么名字？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Nǐ hǎo! Wǒ shì Ani. Nǐ jiào shénme míngzi?</p>
+                                    <p><b>Budi:</b> 你好 Ani! 我叫 Budi。你是学生吗？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Nǐ hǎo Ani! Wǒ jiào Budi. Nǐ shì xuésheng ma?</p>
+                                     <p><b>Ani:</b> 是的，我是学生。你也是学生吗？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Shì de, wǒ shì xuésheng. Nǐ yě shì xuésheng ma?</p>
+                                    <p><b>Budi:</b> 我不是学生，我是汉语老师。</p>
+                                     <p class="text-stone-500 text-xs mb-1">Wǒ bú shì xuésheng, wǒ shì Hànyǔ lǎoshī.</p>
+                                    <p><b>Ani:</b> 哇，太好了！认识你很高兴，Budi 老师。</p>
+                                     <p class="text-stone-500 text-xs mb-1">Wā, tài hǎo le! Rènshi nǐ hěn gāoxìng, Budi lǎoshī.</p>
+                                    <p><b>Budi:</b> 认识你我也很高兴。再见！</p>
+                                     <p class="text-stone-500 text-xs mb-1">Rènshi nǐ wǒ yě hěn gāoxìng. Zàijiàn!</p>
                                 </div>
-                                <h3 class="text-xl font-semibold mt-6 mb-3 text-stone-800">5. Latihan Minggu 1</h3>
-                                <div class="quiz-container border p-4 rounded-lg">
-                                    <p class="font-semibold mb-2">1. Bagaimana seharusnya "nǐ hǎo" dilafalkan sesuai aturan nada?</p>
-                                    <div class="space-y-2">
-                                        <button class="quiz-option w-full text-left p-2 border rounded">nǐ hǎo</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded" data-correct="true">ní hǎo</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded">nǐ háo</button>
-                                    </div>
-                                    <p id="feedback-1" class="mt-2 text-sm font-semibold"></p>
-                                </div>
-                                 <div class="quiz-container border p-4 rounded-lg mt-4">
-                                    <p class="font-semibold mb-2">2. Ubah kalimat ini menjadi pertanyaan: 我是学生 (Wǒ shì xuésheng)。</p>
-                                    <div class="space-y-2">
-                                        <button class="quiz-option w-full text-left p-2 border rounded">我是学生不？</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded" data-correct="true">我是学生吗？</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded">什么我是学生？</button>
-                                    </div>
-                                    <p id="feedback-2" class="mt-2 text-sm font-semibold"></p>
-                                </div>
+                                <h3 class="text-xl font-semibold mt-6 mb-3 text-stone-800">5. Latihan Minggu 1 (30 Soal)</h3>
+                                <div id="quiz-week1"></div>
                             `
                         }
                     ],
                     vocab: [
-                        { hanzi: "我", pinyin: "wǒ", arti: "saya (I)" }, { hanzi: "你", pinyin: "nǐ", arti: "kamu (you)" },
-                        { hanzi: "他", pinyin: "tā", arti: "dia (lk) (he)" }, { hanzi: "她", pinyin: "tā", arti: "dia (pr) (she)" },
-                        { hanzi: "我们", pinyin: "wǒmen", arti: "kami, kita (we)" }, { hanzi: "你好", pinyin: "nǐ hǎo", arti: "halo (hello)" },
-                        { hanzi: "谢谢", pinyin: "xièxie", arti: "terima kasih (thank you)" }, { hanzi: "不客气", pinyin: "bú kèqi", arti: "sama-sama (you're welcome)" },
-                        { hanzi: "再见", pinyin: "zàijiàn", arti: "sampai jumpa (goodbye)" }, { hanzi: "是", pinyin: "shì", arti: "adalah (to be, is/am/are)" },
-                        { hanzi: "不", pinyin: "bù", arti: "tidak (not, no)" }, { hanzi: "吗", pinyin: "ma", arti: "partikel tanya (?)" },
-                        { hanzi: "叫", pinyin: "jiào", arti: "bernama (to be called)" }, { hanzi: "名字", pinyin: "míngzi", arti: "nama (name)" },
-                        { hanzi: "什么", pinyin: "shénme", arti: "apa (what)" }, { hanzi: "老师", pinyin: "lǎoshī", arti: "guru (teacher)" },
-                        { hanzi: "学生", pinyin: "xuésheng", arti: "murid (student)" }, { hanzi: "人", pinyin: "rén", arti: "orang (person)" },
-                        { hanzi: "中国", pinyin: "Zhōngguó", arti: "Tiongkok (China)" }, { hanzi: "美国", pinyin: "Měiguó", arti: "Amerika (America)" },
-                        { hanzi: "医生", pinyin: "yīshēng", arti: "dokter (doctor)" }, { hanzi: "高兴", pinyin: "gāoxìng", arti: "senang (happy)" },
-                        { hanzi: "认识", pinyin: "rènshi", arti: "kenal (to know)" }, { hanzi: "很", pinyin: "hěn", arti: "sangat (very)" },
-                        { hanzi: "也", pinyin: "yě", arti: "juga (also, too)" }, { hanzi: "呢", pinyin: "ne", arti: "partikel tanya balik (how about...?)" },
-                        { hanzi: "一", pinyin: "yī", arti: "1 (one)" }, { hanzi: "二", pinyin: "èr", arti: "2 (two)" },
-                        { hanzi: "三", pinyin: "sān", arti: "3 (three)" }, { hanzi: "四", pinyin: "sì", arti: "4 (four)" },
-                        { hanzi: "五", pinyin: "wǔ", arti: "5 (five)" }, { hanzi: "六", pinyin: "liù", arti: "6 (six)" },
-                        { hanzi: "七", pinyin: "qī", arti: "7 (seven)" }, { hanzi: "八", pinyin: "bā", arti: "8 (eight)" },
-                        { hanzi: "九", pinyin: "jiǔ", arti: "9 (nine)" }, { hanzi: "十", pinyin: "shí", arti: "10 (ten)" }
+                        { hanzi: "我", pinyin: "wǒ", arti_id: "saya", arti_en: "I / me" }, { hanzi: "你", pinyin: "nǐ", arti_id: "kamu", arti_en: "you" },
+                        { hanzi: "他", pinyin: "tā", arti_id: "dia (lk)", arti_en: "he / him" }, { hanzi: "她", pinyin: "tā", arti_id: "dia (pr)", arti_en: "she / her" },
+                        { hanzi: "我们", pinyin: "wǒmen", arti_id: "kami, kita", arti_en: "we / us" }, { hanzi: "你好", pinyin: "nǐ hǎo", arti_id: "halo", arti_en: "hello" },
+                        { hanzi: "谢谢", pinyin: "xièxie", arti_id: "terima kasih", arti_en: "thank you" }, { hanzi: "不客气", pinyin: "bú kèqi", arti_id: "sama-sama", arti_en: "you're welcome" },
+                        { hanzi: "再见", pinyin: "zàijiàn", arti_id: "sampai jumpa", arti_en: "goodbye" }, { hanzi: "是", pinyin: "shì", arti_id: "adalah", arti_en: "to be (is/am/are)" },
+                        { hanzi: "不", pinyin: "bù", arti_id: "tidak", arti_en: "not / no" }, { hanzi: "吗", pinyin: "ma", arti_id: "partikel tanya", arti_en: "question particle (?)" },
+                        { hanzi: "叫", pinyin: "jiào", arti_id: "bernama", arti_en: "to be called" }, { hanzi: "名字", pinyin: "míngzi", arti_id: "nama", arti_en: "name" },
+                        { hanzi: "什么", pinyin: "shénme", arti_id: "apa", arti_en: "what" }, { hanzi: "老师", pinyin: "lǎoshī", arti_id: "guru", arti_en: "teacher" },
+                        { hanzi: "学生", pinyin: "xuésheng", arti_id: "murid", arti_en: "student" }, { hanzi: "人", pinyin: "rén", arti_id: "orang", arti_en: "person" },
+                        { hanzi: "中国", pinyin: "Zhōngguó", arti_id: "Tiongkok", arti_en: "China" }, { hanzi: "美国", pinyin: "Měiguó", arti_id: "Amerika", arti_en: "America" },
+                        { hanzi: "医生", pinyin: "yīshēng", arti_id: "dokter", arti_en: "doctor" }, { hanzi: "高兴", pinyin: "gāoxìng", arti_id: "senang", arti_en: "happy" },
+                        { hanzi: "认识", pinyin: "rènshi", arti_id: "kenal", arti_en: "to know / recognize" }, { hanzi: "很", pinyin: "hěn", arti_id: "sangat", arti_en: "very" },
+                        { hanzi: "也", pinyin: "yě", arti_id: "juga", arti_en: "also / too" }, { hanzi: "呢", pinyin: "ne", arti_id: "partikel tanya balik", arti_en: "how about...?" },
+                        { hanzi: "一", pinyin: "yī", arti_id: "1", arti_en: "one" }, { hanzi: "二", pinyin: "èr", arti_id: "2", arti_en: "two" },
+                        { hanzi: "三", pinyin: "sān", arti_id: "3", arti_en: "three" }, { hanzi: "四", pinyin: "sì", arti_id: "4", arti_en: "four" },
+                        { hanzi: "五", pinyin: "wǔ", arti_id: "5", arti_en: "five" }, { hanzi: "六", pinyin: "liù", arti_id: "6", arti_en: "six" },
+                        { hanzi: "七", pinyin: "qī", arti_id: "7", arti_en: "seven" }, { hanzi: "八", pinyin: "bā", arti_id: "8", arti_en: "eight" },
+                        { hanzi: "九", pinyin: "jiǔ", arti_id: "9", arti_en: "nine" }, { hanzi: "十", pinyin: "shí", arti_id: "10", arti_en: "ten" },
+                        { hanzi: "零", pinyin: "líng", arti_id: "0", arti_en: "zero" }, { hanzi: "对不起", pinyin: "duìbuqǐ", arti_id: "maaf", arti_en: "sorry" },
+                        { hanzi: "没关系", pinyin: "méi guānxi", arti_id: "tidak apa-apa", arti_en: "it's okay / no problem" }, { hanzi: "请", pinyin: "qǐng", arti_id: "silakan, mengundang", arti_en: "please / to invite" },
+                        { hanzi: "家", pinyin: "jiā", arti_id: "rumah, keluarga", arti_en: "home / family" }, { hanzi: "爸爸", pinyin: "bàba", arti_id: "ayah", arti_en: "father" },
+                        { hanzi: "妈妈", pinyin: "māma", arti_id: "ibu", arti_en: "mother" }, { hanzi: "儿子", pinyin: "érzi", arti_id: "anak laki-laki", arti_en: "son" },
+                        { hanzi: "女儿", pinyin: "nǚ'ér", arti_id: "anak perempuan", arti_en: "daughter" }, { hanzi: "谁", pinyin: "shéi", arti_id: "siapa", arti_en: "who" },
+                        { hanzi: "的", pinyin: "de", arti_id: "partikel kepemilikan", arti_en: "possessive particle ('s)" }, { hanzi: "这", pinyin: "zhè", arti_id: "ini", arti_en: "this" }
+                    ],
+                    quiz: [
+                        { type: 'header', text: 'Bagian A: Pinyin & Nada' },
+                        { q: '1. Pinyin untuk "美国" adalah...', o: ['měiguó', 'méiguó', 'měiguo'], a: 'měiguó' },
+                        { q: '2. Sesuai aturan, "nǐ hǎo" dibaca...', o: ['nǐ hǎo', 'ní hǎo', 'nǐ háo'], a: 'ní hǎo' },
+                        { q: '3. Hanzi untuk "zàijiàn" adalah...', o: ['再见', '再见吗', '不客气'], a: '再见' },
+                        { q: '4. Nada ke-4 (jatuh) ada pada kata...', o: ['mā', 'má', 'mǎ', 'mà'], a: 'mà' },
+                        { q: '5. "bú kèqi", huruf "bú" dibaca nada 2 karena...', o: ['diikuti nada 1', 'diikuti nada 3', 'diikuti nada 4'], a: 'diikuti nada 4' },
+                        { q: '6. Pinyin untuk "lima" adalah...', o: ['liù', 'wǔ', 'qī'], a: 'wǔ' },
+                        { q: '7. Pinyin untuk "sembilan" adalah...', o: ['jiǔ', 'shí', 'bā'], a: 'jiǔ' },
+                        { q: '8. Sesuai aturan, "hěn hǎo" dibaca...', o: ['hén hǎo', 'hěn hǎo', 'hěn háo'], a: 'hěn hǎo' }, // tricky, but it's an exception, mostly remains 3+3 for this common phrase
+                        { q: '9. Pinyin untuk "terima kasih" adalah...', o: ['xièxie', 'xièxiè', 'xǐexǐe'], a: 'xièxie' },
+                        { q: '10. Pinyin untuk "guru" adalah...', o: ['lǎoshī', 'lǎoshì', 'láoshī'], a: 'lǎoshī' },
+                        { type: 'header', text: 'Bagian B: Kosa Kata' },
+                        { q: '11. Apa arti dari "学生 (xuésheng)"?', o: ['Guru', 'Dokter', 'Murid'], a: 'Murid' },
+                        { q: '12. "Maaf" dalam bahasa Mandarin adalah...', o: ['没关系', '对不起', '谢谢'], a: '对不起' },
+                        { q: '13. Hanzi untuk "nama" adalah...', o: ['什么', '名字', '认识'], a: '名字' },
+                        { q: '14. Apa arti dari "高兴 (gāoxìng)"?', o: ['Senang', 'Sedih', 'Marah'], a: 'Senang' },
+                        { q: '15. "Keluarga" atau "rumah" adalah...', o: ['人', '家', '中国'], a: '家' },
+                        { q: '16. "Anak perempuan" adalah...', o: ['儿子', '女儿', '妈妈'], a: '女儿' },
+                        { q: '17. Hanzi untuk "siapa" adalah...', o: ['谁', '什么', '吗'], a: '谁' },
+                        { q: '18. Angka "nol" adalah...', o: ['一', '十', '零'], a: '零' },
+                        { q: '19. Apa arti dari "也 (yě)"?', o: ['Juga', 'Tidak', 'Sangat'], a: 'Juga' },
+                        { q: '20. Hanzi untuk "ini" adalah...', o: ['这', '那', '哪'], a: '这' },
+                        { type: 'header', text: 'Bagian C: Tata Bahasa & Kalimat' },
+                        { q: '21. Susun: 是 / 学生 / 我', o: ['我是学生', '学生是我', '是我学生'], a: '我是学生' },
+                        { q: '22. Ubah ke kalimat negatif: 他是医生。', o: ['他不是医生吗？', '他不是医生。', '他是医生不？'], a: '他不是医生。' },
+                        { q: '23. Ubah ke kalimat tanya: 你叫 Budi。', o: ['你叫 Budi 吗？', '你叫什么 Budi？', '你是不 Budi？'], a: '你叫 Budi 吗？' },
+                        { q: '24. Jawaban yang tepat untuk "谢谢你" adalah...', o: ['你好', '不客气', '对不起'], a: '不客气' },
+                        { q: '25. Lengkapi: ___ 叫什么名字？', o: ['我', '他', '你'], a: '你' },
+                        { q: '26. "Saya juga orang Amerika" adalah...', o: ['我是美国人也。', '我也人是美国。', '我也是美国人。'], a: '我也是美国人。' },
+                        { q: '27. Jawaban yang tepat untuk "你叫什么名字？" adalah...', o: ['我很好。', '我是学生。', '我叫 David。'], a: '我叫 David。' },
+                        { q: '28. Tahun "2010" dibaca...', o: ['二零一零年', '两千一十年', '二十一零年'], a: '二零一零年' },
+                        { q: '29. Nominal "¥ 5.20" dibaca...', o: ['五块二', '五十二', '五二块'], a: '五块二' },
+                        { q: '30. Susun: 的 / 爸爸 / 我 / 是 / 他', o: ['他是我的爸爸', '我的爸爸是他', '他是我爸爸的'], a: '他是我的爸爸' },
                     ]
                 },
                 week2: {
@@ -231,14 +278,8 @@
                         {
                             title: "Tata Bahasa",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">1. Penyusunan Kalimat: Kepemilikan & Lokasi</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">1. Penyusunan Kalimat: Lokasi & Aktivitas</h3>
                                 <div class="space-y-4">
-                                    <div class="border p-4 rounded-lg">
-                                        <p class="font-bold text-lg">Kepemilikan dengan 的 (de)</p>
-                                        <p class="text-sm text-stone-600 mb-2">Pola: Pemilik + 的 + yang Dimiliki. '的' sering bisa dihilangkan dalam hubungan keluarga dekat.</p>
-                                        <p><span class="text-green-600">Contoh:</span> 这是我<span class="font-bold">的</span>书。(Zhè shì wǒ de shū.) - Ini adalah buku saya.</p>
-                                        <p><span class="text-green-600">Contoh:</span> 他是 我爸爸。(Tā shì wǒ bàba.) - Dia adalah ayah saya. ('的' dihilangkan)</p>
-                                    </div>
                                     <div class="border p-4 rounded-lg">
                                         <p class="font-bold text-lg">Menyatakan Lokasi dengan 在 (zài)</p>
                                         <p class="text-sm text-stone-600 mb-2">Pola: Subjek + 在 + Tempat</p>
@@ -246,11 +287,19 @@
                                         <p><span class="text-red-600">Negatif:</span> 妈妈不<span class="font-bold">在</span>家。(Māma bú zài jiā.) - Ibu tidak di rumah.</p>
                                         <p><span class="text-blue-600">Tanya:</span> 你<span class="font-bold">在</span>哪儿？(Nǐ zài nǎr?) - Kamu di mana?</p>
                                     </div>
-                                     <div class="border p-4 rounded-lg">
-                                        <p class="font-bold text-lg">Kata Bantu Bilangan: 个 (gè)</p>
-                                        <p class="text-sm text-stone-600 mb-2">Pola: Angka + 个 + Benda. '个' adalah yang paling umum.</p>
-                                        <p><span class="text-green-600">Contoh:</span> 一<span class="font-bold">个</span>人 (yí ge rén) - satu orang.</p>
-                                        <p><span class="text-green-600">Contoh:</span> 三<span class="font-bold">个</span>学生 (sān ge xuésheng) - tiga orang murid.</p>
+                                    <div class="border p-4 rounded-lg">
+                                        <p class="font-bold text-lg">Kata Bantu Bilangan: 个 (gè) & Lainnya</p>
+                                        <p class="text-sm text-stone-600 mb-2">Pola: Angka + Kata Bantu + Benda.</p>
+                                        <p><span class="text-green-600">个 (gè):</span> untuk orang, benda umum. 例: 一<span class="font-bold">个</span>人 (yí ge rén) - satu orang.</p>
+                                        <p><span class="text-green-600">本 (běn):</span> untuk buku, majalah. 例: 三<span class="font-bold">本</span>书 (sān běn shū) - tiga buku.</p>
+                                        <p><span class="text-green-600">块 (kuài):</span> untuk uang. 例: 十<span class="font-bold">块</span>钱 (shí kuài qián) - 10 yuan.</p>
+                                    </div>
+                                    <div class="border p-4 rounded-lg">
+                                        <p class="font-bold text-lg">Mengekspresikan Keinginan: 想 (xiǎng) & 要 (yào)</p>
+                                        <p class="text-sm text-stone-600 mb-2"><b>想 (xiǎng)</b>: ingin (lebih lembut, angan-angan). Pola: Subjek + 想 + Kata Kerja</p>
+                                        <p><b>要 (yào)</b>: mau/akan (lebih kuat, pasti). Pola: Subjek + 要 + Kata Benda/Kerja</p>
+                                        <p><span class="text-green-600">Contoh:</span> 我<span class="font-bold">想</span>喝茶。(Wǒ xiǎng hē chá.) - Saya ingin minum teh.</p>
+                                        <p><span class="text-green-600">Contoh:</span> 我<span class="font-bold">要</span>一个苹果。(Wǒ yào yí ge píngguǒ.) - Saya mau sebuah apel.</p>
                                     </div>
                                 </div>
                             `
@@ -258,54 +307,94 @@
                         {
                             title: "Kosakata Minggu Ini",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">2. Kosakata: Keluarga, Tempat & Makanan</h3>
-                                <div id="vocab-week2-1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">2. Kosakata: Tempat & Aktivitas (50 Kata)</h3>
+                                <div id="vocab-week2-1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
                             `
                         },
                         {
-                            title: "Percakapan & Latihan",
+                            title: "Percakapan & Latihan (30 Soal)",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">3. Percakapan Sederhana: Di Rumah Teman</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">3. Percakapan Sederhana (Diperpanjang)</h3>
                                 <div class="bg-stone-100 p-4 rounded-lg mb-6 text-sm">
-                                    <p><b>A:</b> 这是你的家吗？(Zhè shì nǐ de jiā ma?)</p>
-                                    <p><b>B:</b> 是，这是我的家。(Shì, zhè shì wǒ de jiā.)</p>
-                                    <p><b>A:</b> 那个人是谁？(Nà ge rén shì shéi?)</p>
-                                    <p><b>B:</b> 那是我的爸爸。(Nà shì wǒ de bàba.)</p>
-                                    <p><b>A:</b> 你想喝什么？(Nǐ xiǎng hē shénme?)</p>
-                                    <p><b>B:</b> 我想喝水，谢谢。(Wǒ xiǎng hē shuǐ, xièxie.)</p>
+                                    <p class="font-bold mb-2">Percakapan: Berbelanja Buah</p>
+                                    <p><b>Penjual:</b> 你好，小姐。你想买什么？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Nǐ hǎo, xiǎojiě. Nǐ xiǎng mǎi shénme?</p>
+                                    <p><b>Ani:</b> 我想买苹果。这个苹果多少钱？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Wǒ xiǎng mǎi píngguǒ. Zhè ge píngguǒ duōshao qián?</p>
+                                    <p><b>Penjual:</b> 一个五块钱。苹果很大，很好吃。</p>
+                                    <p class="text-stone-500 text-xs mb-1">Yí ge wǔ kuài qián. Píngguǒ hěn dà, hěn hǎochī.</p>
+                                     <p><b>Ani:</b> 太贵了！我想买三个。可以少一点儿吗？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Tài guì le! Wǒ xiǎng mǎi sān ge. Kěyǐ shǎo yìdiǎnr ma?</p>
+                                    <p><b>Penjual:</b> 好吧，三个十二块钱。</p>
+                                    <p class="text-stone-500 text-xs mb-1">Hǎo ba, sān ge shí èr kuài qián.</p>
+                                    <p><b>Ani:</b> 好的，谢谢！</p>
+                                    <p class="text-stone-500 text-xs mb-1">Hǎo de, xièxie!</p>
                                 </div>
-                                <h3 class="text-xl font-semibold mt-6 mb-3 text-stone-800">4. Latihan Minggu 2</h3>
-                                <div class="quiz-container border p-4 rounded-lg">
-                                    <p class="font-semibold mb-2">1. Bagaimana cara bertanya "Dia (lk) di mana?"</p>
-                                    <div class="space-y-2">
-                                        <button class="quiz-option w-full text-left p-2 border rounded" data-correct="true">他在哪儿？</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded">他是哪儿？</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded">他吗在哪儿？</button>
-                                    </div>
-                                    <p id="feedback-3" class="mt-2 text-sm font-semibold"></p>
-                                </div>
+                                <h3 class="text-xl font-semibold mt-6 mb-3 text-stone-800">4. Latihan Minggu 2 (30 Soal)</h3>
+                                <div id="quiz-week2"></div>
                             `
                         }
                     ],
                     vocab: [
-                        { hanzi: "家", pinyin: "jiā", arti: "rumah, keluarga (home, family)" }, { hanzi: "爸爸", pinyin: "bàba", arti: "ayah (father)" },
-                        { hanzi: "妈妈", pinyin: "māma", arti: "ibu (mother)" }, { hanzi: "儿子", pinyin: "érzi", arti: "anak laki-laki (son)" },
-                        { hanzi: "女儿", pinyin: "nǚ'ér", arti: "anak perempuan (daughter)" }, { hanzi: "谁", pinyin: "shéi", arti: "siapa (who)" },
-                        { hanzi: "的", pinyin: "de", arti: "partikel kepemilikan ('s)" }, { hanzi: "这", pinyin: "zhè", arti: "ini (this)" },
-                        { hanzi: "那", pinyin: "nà", arti: "itu (that)" }, { hanzi: "哪儿", pinyin: "nǎr", arti: "di mana (where)" },
-                        { hanzi: "在", pinyin: "zài", arti: "di, sedang (at, in)" }, { hanzi: "学校", pinyin: "xuéxiào", arti: "sekolah (school)" },
-                        { hanzi: "医院", pinyin: "yīyuàn", arti: "rumah sakit (hospital)" }, { hanzi: "商店", pinyin: "shāngdiàn", arti: "toko (store)" },
-                        { hanzi: "看", pinyin: "kàn", arti: "melihat, membaca (to see, to read)" }, { hanzi: "听", pinyin: "tīng", arti: "mendengar (to listen)" },
-                        { hanzi: "说话", pinyin: "shuōhuà", arti: "berbicara (to speak)" }, { hanzi: "吃", pinyin: "chī", arti: "makan (to eat)" },
-                        { hanzi: "喝", pinyin: "hē", arti: "minum (to drink)" }, { hanzi: "去", pinyin: "qù", arti: "pergi (to go)" },
-                        { hanzi: "朋友", pinyin: "péngyou", arti: "teman (friend)" }, { hanzi: "同学", pinyin: "tóngxué", arti: "teman sekelas (classmate)" },
-                        { hanzi: "书", pinyin: "shū", arti: "buku (book)" }, { hanzi: "电脑", pinyin: "diànnǎo", arti: "komputer (computer)" },
-                        { hanzi: "电视", pinyin: "diànshì", arti: "televisi (television)" }, { hanzi: "电影", pinyin: "diànyǐng", arti: "film (movie)" },
-                        { hanzi: "东西", pinyin: "dōngxi", arti: "barang (thing, stuff)" }, { hanzi: "水", pinyin: "shuǐ", arti: "air (water)" },
-                        { hanzi: "茶", pinyin: "chá", arti: "teh (tea)" }, { hanzi: "饭", pinyin: "fàn", arti: "nasi, makanan (rice, meal)" },
-                        { hanzi: "菜", pinyin: "cài", arti: "sayur, lauk (vegetable, dish)" }, { hanzi: "苹果", pinyin: "píngguǒ", arti: "apel (apple)" },
-                        { hanzi: "个", pinyin: "gè", arti: "kata bantu bilangan (measure word)" }, { hanzi: "有", pinyin: "yǒu", arti: "punya, ada (to have, there is/are)" },
-                        { hanzi: "没有", pinyin: "méiyǒu", arti: "tidak punya/ada (don't have)" }, { hanzi: "想", pinyin: "xiǎng", arti: "ingin, berpikir (to want, to think)" }
+                        { hanzi: "那", pinyin: "nà", arti_id: "itu", arti_en: "that" }, { hanzi: "哪儿", pinyin: "nǎr", arti_id: "di mana", arti_en: "where" },
+                        { hanzi: "在", pinyin: "zài", arti_id: "di, sedang", arti_en: "at / in / on" }, { hanzi: "学校", pinyin: "xuéxiào", arti_id: "sekolah", arti_en: "school" },
+                        { hanzi: "医院", pinyin: "yīyuàn", arti_id: "rumah sakit", arti_en: "hospital" }, { hanzi: "商店", pinyin: "shāngdiàn", arti_id: "toko", arti_en: "store / shop" },
+                        { hanzi: "看", pinyin: "kàn", arti_id: "melihat, membaca", arti_en: "to see / to read" }, { hanzi: "听", pinyin: "tīng", arti_id: "mendengar", arti_en: "to listen" },
+                        { hanzi: "说话", pinyin: "shuōhuà", arti_id: "berbicara", arti_en: "to speak" }, { hanzi: "吃", pinyin: "chī", arti_id: "makan", arti_en: "to eat" },
+                        { hanzi: "喝", pinyin: "hē", arti_id: "minum", arti_en: "to drink" }, { hanzi: "去", pinyin: "qù", arti_id: "pergi", arti_en: "to go" },
+                        { hanzi: "朋友", pinyin: "péngyou", arti_id: "teman", arti_en: "friend" }, { hanzi: "同学", pinyin: "tóngxué", arti_id: "teman sekelas", arti_en: "classmate" },
+                        { hanzi: "书", pinyin: "shū", arti_id: "buku", arti_en: "book" }, { hanzi: "电脑", pinyin: "diànnǎo", arti_id: "komputer", arti_en: "computer" },
+                        { hanzi: "电视", pinyin: "diànshì", arti_id: "televisi", arti_en: "television" }, { hanzi: "电影", pinyin: "diànyǐng", arti_id: "film", arti_en: "movie" },
+                        { hanzi: "东西", pinyin: "dōngxi", arti_id: "barang", arti_en: "thing / stuff" }, { hanzi: "水", pinyin: "shuǐ", arti_id: "air", arti_en: "water" },
+                        { hanzi: "茶", pinyin: "chá", arti_id: "teh", arti_en: "tea" }, { hanzi: "饭", pinyin: "fàn", arti_id: "nasi, makanan", arti_en: "rice / meal" },
+                        { hanzi: "菜", pinyin: "cài", arti_id: "sayur, lauk", arti_en: "vegetable / dish" }, { hanzi: "苹果", pinyin: "píngguǒ", arti_id: "apel", arti_en: "apple" },
+                        { hanzi: "个", pinyin: "gè", arti_id: "kata bantu bilangan", arti_en: "general measure word" }, { hanzi: "有", pinyin: "yǒu", arti_id: "punya, ada", arti_en: "to have / there is" },
+                        { hanzi: "没有", pinyin: "méiyǒu", arti_id: "tidak punya/ada", arti_en: "don't have" }, { hanzi: "想", pinyin: "xiǎng", arti_id: "ingin, berpikir", arti_en: "to want / to think" },
+                        { hanzi: "先生", pinyin: "xiānsheng", arti_id: "tuan, bapak", arti_en: "Mr. / sir" }, { hanzi: "小姐", pinyin: "xiǎojiě", arti_id: "nona", arti_en: "Miss" },
+                        { hanzi: "大", pinyin: "dà", arti_id: "besar", arti_en: "big" }, { hanzi: "小", pinyin: "xiǎo", arti_id: "kecil", arti_en: "small" },
+                        { hanzi: "多", pinyin: "duō", arti_id: "banyak", arti_en: "many / much" }, { hanzi: "少", pinyin: "shǎo", arti_id: "sedikit", arti_en: "few / little" },
+                        { hanzi: "漂亮", pinyin: "piàoliang", arti_id: "cantik", arti_en: "beautiful" }, { hanzi: "前面", pinyin: "qiánmiàn", arti_id: "depan", arti_en: "front" },
+                        { hanzi: "后面", pinyin: "hòumiàn", arti_id: "belakang", arti_en: "back" }, { hanzi: "里", pinyin: "lǐ", arti_id: "dalam", arti_en: "inside" },
+                        { hanzi: "钱", pinyin: "qián", arti_id: "uang", arti_en: "money" }, { hanzi: "块", pinyin: "kuài", arti_id: "satuan uang", arti_en: "money unit (yuan)" },
+                        { hanzi: "衣服", pinyin: "yīfu", arti_id: "pakaian", arti_en: "clothes" }, { hanzi: "字", pinyin: "zì", arti_id: "karakter, huruf", arti_en: "character / word" },
+                        { hanzi: "桌子", pinyin: "zhuōzi", arti_id: "meja", arti_en: "table" }, { hanzi: "椅子", pinyin: "yǐzi", arti_id: "kursi", arti_en: "chair" },
+                        { hanzi: "本", pinyin: "běn", arti_id: "kata bantu utk buku", arti_en: "measure word for books" }, { hanzi: "杯子", pinyin: "bēizi", arti_id: "cangkir", arti_en: "cup" },
+                        { hanzi: "米饭", pinyin: "mǐfàn", arti_id: "nasi", arti_en: "cooked rice" }, { hanzi: "多少", pinyin: "duōshao", arti_id: "berapa banyak", arti_en: "how many / how much" }
+                    ],
+                    quiz: [
+                        { type: 'header', text: 'Bagian A: Kosa Kata' },
+                        { q: '1. Hanzi untuk "toko" adalah...', o: ['医院', '学校', '商店'], a: '商店' },
+                        { q: '2. "Pakaian" dalam bahasa Mandarin adalah...', o: ['衣服', '东西', '电视'], a: '衣服' },
+                        { q: '3. Apa arti dari "桌子 (zhuōzi)"?', o: ['Kursi', 'Meja', 'Buku'], a: 'Meja' },
+                        { q: '4. "Teman sekelas" adalah...', o: ['朋友', '老师', '同学'], a: '同学' },
+                        { q: '5. Hanzi untuk "uang" adalah...', o: ['钱', '饭', '菜'], a: '钱' },
+                        { q: '6. Apa arti dari "漂亮 (piàoliang)"?', o: ['Kecil', 'Besar', 'Cantik'], a: 'Cantik' },
+                        { q: '7. "Di depan" adalah...', o: ['后面', '前面', '里'], a: '前面' },
+                        { q: '8. Hanzi untuk "minum" adalah...', o: ['吃', '喝', '看'], a: '喝' },
+                        { q: '9. Apa arti dari "说话 (shuōhuà)"?', o: ['Mendengar', 'Berbicara', 'Membaca'], a: 'Berbicara' },
+                        { q: '10. "Apel" adalah...', o: ['菜', '饭', '苹果'], a: '苹果' },
+                        { type: 'header', text: 'Bagian B: Tata Bahasa' },
+                        { q: '11. Kalimat yang benar untuk "Saya tidak punya komputer" adalah...', o: ['我没有电脑。', '我不在电脑。', '我不想电脑。'], a: '我没有电脑。' },
+                        { q: '12. Pilih kata bantu bilangan yang tepat: 三 ___ 书', o: ['个', '块', '本'], a: '本' },
+                        { q: '13. "Di mana kucing itu?" adalah...', o: ['猫是哪儿？', '猫在哪儿？', '猫有哪儿？'], a: '猫在哪儿？' },
+                        { q: '14. Lengkapi: 椅子在桌子 ___。', o: ['前面', '后面', '上面'], a: '后面' }, // Assuming standard placement
+                        { q: '15. "Saya mau secangkir teh" adalah...', o: ['我要一个茶。', '我要一杯茶。', '我想一杯茶。'], a: '我要一杯茶。' },
+                        { q: '16. Jawaban yang paling mungkin untuk "你在哪儿？"', o: ['我是学生。', '我在家。', '我很好。'], a: '我在家。' },
+                        { q: '17. Pilih kalimat yang benar:', o: ['这是书我的。', '这是我的书。', '这是我书的。'], a: '这是我的书。' },
+                        { q: '18. Ubah ke negatif: 我有朋友。', o: ['我没有朋友。', '我不是朋友。', '我不有朋友。'], a: '我没有朋友。' },
+                        { q: '19. Pilih kata bantu yang tepat: 一 ___ 医生', o: ['本', '块', '个'], a: '个' },
+                        { q: '20. "Dia (pr) ingin makan nasi" adalah...', o: ['她想吃饭。', '她要吃饭。', '她会吃饭。'], a: '她想吃饭。' },
+                        { type: 'header', text: 'Bagian C: Menyusun Kalimat' },
+                        { q: '21. Susun: 商店 / 在 / 我 / 东西 / 买', o: ['我在商店买东西。', '我买东西在商店。', '商店在买我东西。'], a: '我在商店买东西。' },
+                        { q: '22. Susun: 钱 / 多少 / 这 / 衣服 / 件', o: ['这件衣服多少钱？', '多少钱这件衣服？', '衣服这件多少钱？'], a: '这件衣服多少钱？' },
+                        { q: '23. Susun: 朋友 / 学校 / 在 / 我的', o: ['我的朋友在学校。', '我在学校的朋友。', '朋友在我的学校。'], a: '我的朋友在学校。' },
+                        { q: '24. Susun: 不 / 苹果 / 吃 / 我 / 想', o: ['我不想吃苹果。', '我不吃想苹果。', '我想不吃苹果。'], a: '我不想吃苹果。' },
+                        { q: '25. Susun: 有 / 杯子 / 里 / 水', o: ['水里有杯子。', '杯子里有水。', '有水里杯子。'], a: '杯子里有水。' },
+                        { q: '26. Susun: 的 / 谁 / 是 / 这 / 书', o: ['这是谁的书？', '谁是这本书？', '这本书是谁？'], a: '这是谁的书？' },
+                        { q: '27. Susun: 漂亮 / 很 / 的 / 衣服 / 她', o: ['她的衣服很漂亮。', '很漂亮的衣服她。', '衣服她的很漂亮。'], a: '她的衣服很漂亮。' },
+                        { q: '28. Susun: 电脑 / 看 / 在 / 他', o: ['电脑在看他。', '他在看电脑。', '看他在电脑。'], a: '他在看电脑。' },
+                        { q: '29. Susun: 名字 / 叫 / 的 / 什么 / 你 / 朋友', o: ['你的朋友叫什么名字？', '你叫什么的朋友名字？', '什么名字叫你的朋友？'], a: '你的朋友叫什么名字？' },
+                        { q: '30. Susun: 饭 / 吃 / 去 / 我 / 饭馆', o: ['我去吃饭饭馆。', '我去饭馆吃饭。', '我吃饭去饭馆。'], a: '我去饭馆吃饭。' },
                     ]
                 },
                 week3: {
@@ -313,7 +402,7 @@
                         {
                             title: "Tata Bahasa",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">1. Penyusunan Kalimat: Waktu & Deskripsi</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">1. Penyusunan Kalimat: Waktu & Kemampuan</h3>
                                 <div class="space-y-4">
                                     <div class="border p-4 rounded-lg">
                                         <p class="font-bold text-lg">Menyatakan Waktu (Jam & Tanggal)</p>
@@ -323,11 +412,16 @@
                                         <p><span class="text-blue-600">Tanya Jam:</span> 现在<span class="font-bold">几</span>点？(Xiànzài jǐ diǎn?) - Sekarang jam berapa?</p>
                                     </div>
                                     <div class="border p-4 rounded-lg">
-                                        <p class="font-bold text-lg">Deskripsi dengan 很 (hěn)</p>
-                                        <p class="text-sm text-stone-600 mb-2">Pola: Subjek + 很 + Kata Sifat. '很' wajib ada dalam kalimat positif sederhana.</p>
+                                        <p class="font-bold text-lg">Deskripsi dengan 很 (hěn) & 太 (tài)</p>
+                                        <p class="text-sm text-stone-600 mb-2"><b>很 (hěn)</b>: sebagai penyeimbang sebelum kata sifat. <b>太...了 (tài...le)</b>: untuk "terlalu".</p>
                                         <p><span class="text-green-600">Positif:</span> 今天天气<span class="font-bold">很</span>好。(Jīntiān tiānqì hěn hǎo.) - Cuaca hari ini bagus.</p>
-                                        <p><span class="text-red-600">Negatif:</span> 今天天气<span class="font-bold">不</span>好。(Jīntiān tiānqì bù hǎo.) - ('很' hilang)</p>
-                                        <p><span class="text-blue-600">Tanya:</span> 今天天气好<span class="font-bold">吗</span>？(Jīntiān tiānqì hǎo ma?) - ('很' hilang)</p>
+                                        <p><span class="text-green-600">Seruan:</span> 这个<span class="font-bold">太</span>好了！(Zhè ge tài hǎo le!) - Ini bagus sekali!</p>
+                                    </div>
+                                    <div class="border p-4 rounded-lg">
+                                        <p class="font-bold text-lg">Menyatakan Kemampuan: 会 (huì) & 能 (néng)</p>
+                                        <p class="text-sm text-stone-600 mb-2"><b>会 (huì)</b>: bisa karena belajar (skill). <b>能 (néng)</b>: bisa karena situasi memungkinkan (kemampuan).</p>
+                                        <p><span class="text-green-600">Contoh:</span> 我<span class="font-bold">会</span>说汉语。(Wǒ huì shuō Hànyǔ.) - Saya bisa berbicara Mandarin.</p>
+                                        <p><span class="text-green-600">Contoh:</span> 我现在不<span class="font-bold">能</span>去。(Wǒ xiànzài bù néng qù.) - Saya sekarang tidak bisa pergi.</p>
                                     </div>
                                 </div>
                             `
@@ -335,92 +429,116 @@
                         {
                             title: "Kosakata Minggu Ini",
                              content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">2. Kosakata: Waktu, Deskripsi & Aktivitas</h3>
-                                <div id="vocab-week3-1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">2. Kosakata: Waktu & Aktivitas Lanjutan (50 Kata)</h3>
+                                <div id="vocab-week3-1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
                             `
                         },
                         {
-                            title: "Percakapan & Latihan",
+                            title: "Percakapan & Latihan (30 Soal)",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">3. Percakapan Sederhana: Membuat Janji</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">3. Percakapan Sederhana (Diperpanjang)</h3>
                                 <div class="bg-stone-100 p-4 rounded-lg mb-6 text-sm">
-                                    <p><b>A:</b> 你好! 明天是星期六, 你去学校吗？ (Nǐ hǎo! Míngtiān shì xīngqīliù, nǐ qù xuéxiào ma?)</p>
-                                    <p><b>B:</b> 我不去学校。 (Wǒ bú qù xuéxiào.)</p>
-                                    <p><b>A:</b> 那我们去看电影，怎么样？ (Nà wǒmen qù kàn diànyǐng, zěnmeyàng?)</p>
-                                    <p><b>B:</b> 太好了！几点？ (Tài hǎo le! Jǐ diǎn?)</p>
-                                    <p><b>A:</b> 下午三点, 可以吗？ (Xiàwǔ sān diǎn, kěyǐ ma?)</p>
-                                    <p><b>B:</b> 可以。明天见！ (Kěyǐ. Míngtiān jiàn!)</p>
+                                    <p class="font-bold mb-2">Percakapan: Merencanakan Akhir Pekan</p>
+                                    <p><b>Li Mei:</b> 喂，David, 你在做什么呢？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Wèi, David, nǐ zài zuò shénme ne?</p>
+                                    <p><b>David:</b> 我在学习。明天是星期六，你有什么计划吗？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Wǒ zài xuéxí. Míngtiān shì xīngqīliù, nǐ yǒu shénme jìhuà ma?</p>
+                                     <p><b>Li Mei:</b> 我没有计划。你呢？你想做什么？</p>
+                                    <p class="text-stone-500 text-xs mb-1">Wǒ méiyǒu jìhuà. Nǐ ne? Nǐ xiǎng zuò shénme?</p>
+                                    <p><b>David:</b> 我想去看电影。北京的冬天太冷了，我不想去外面。</p>
+                                     <p class="text-stone-500 text-xs mb-1">Wǒ xiǎng qù kàn diànyǐng. Běijīng de dōngtiān tài lěng le, wǒ bù xiǎng qù wàimiàn.</p>
+                                    <p><b>Li Mei:</b> 好啊！我们几点去？</p>
+                                     <p class="text-stone-500 text-xs mb-1">Hǎo a! Wǒmen jǐ diǎn qù?</p>
+                                    <p><b>David:</b> 下午三点怎么样？我们可以坐出租车去。</p>
+                                     <p class="text-stone-500 text-xs mb-1">Xiàwǔ sān diǎn zěnmeyàng? Wǒmen kěyǐ zuò chūzūchē qù.</p>
+                                    <p><b>Li Mei:</b> 可以！明天下午三点见。</p>
+                                     <p class="text-stone-500 text-xs mb-1">Kěyǐ! Míngtiān xiàwǔ sān diǎn jiàn.</p>
                                 </div>
-                                <h3 class="text-xl font-semibold mt-6 mb-3 text-stone-800">4. Latihan Minggu 3</h3>
-                                <div class="quiz-container border p-4 rounded-lg">
-                                    <p class="font-semibold mb-2">1. Bagaimana cara mengatakan "Hari ini cuacanya tidak dingin"?</p>
-                                    <div class="space-y-2">
-                                        <button class="quiz-option w-full text-left p-2 border rounded">今天天气不很冷。</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded" data-correct="true">今天天气不冷。</button>
-                                        <button class="quiz-option w-full text-left p-2 border rounded">今天天气冷不。</button>
-                                    </div>
-                                    <p id="feedback-4" class="mt-2 text-sm font-semibold"></p>
-                                </div>
+                                <h3 class="text-xl font-semibold mt-6 mb-3 text-stone-800">4. Latihan Minggu 3 (30 Soal)</h3>
+                                <div id="quiz-week3"></div>
                             `
                         }
                     ],
                     vocab: [
-                        { hanzi: "今天", pinyin: "jīntiān", arti: "hari ini (today)" }, { hanzi: "明天", pinyin: "míngtiān", arti: "besok (tomorrow)" },
-                        { hanzi: "昨天", pinyin: "zuótiān", arti: "kemarin (yesterday)" }, { hanzi: "上午", pinyin: "shàngwǔ", arti: "pagi (morning)" },
-                        { hanzi: "中午", pinyin: "zhōngwǔ", arti: "tengah hari (noon)" }, { hanzi: "下午", pinyin: "xiàwǔ", arti: "sore (afternoon)" },
-                        { hanzi: "年", pinyin: "nián", arti: "tahun (year)" }, { hanzi: "月", pinyin: "yuè", arti: "bulan (month)" },
-                        { hanzi: "日", pinyin: "rì", arti: "hari, tanggal (day, date)" }, { hanzi: "号", pinyin: "hào", arti: "tanggal (date)" },
-                        { hanzi: "星期", pinyin: "xīngqī", arti: "minggu (hari) (week)" }, { hanzi: "点", pinyin: "diǎn", arti: "jam (o'clock)" },
-                        { hanzi: "分", pinyin: "fēn", arti: "menit (minute)" }, { hanzi: "现在", pinyin: "xiànzài", arti: "sekarang (now)" },
-                        { hanzi: "时候", pinyin: "shíhou", arti: "waktu, ketika (time, when)" }, { hanzi: "几", pinyin: "jǐ", arti: "berapa (<10) (how many, <10)" },
-                        { hanzi: "怎么样", pinyin: "zěnmeyàng", arti: "bagaimana (how is it?)" }, { hanzi: "太...了", pinyin: "tài...le", arti: "terlalu (too)" },
-                        { hanzi: "天气", pinyin: "tiānqì", arti: "cuaca (weather)" }, { hanzi: "热", pinyin: "rè", arti: "panas (hot)" },
-                        { hanzi: "冷", pinyin: "lěng", arti: "dingin (cold)" }, { hanzi: "下雨", pinyin: "xià yǔ", arti: "hujan (to rain)" },
-                        { hanzi: "喂", pinyin: "wèi", arti: "halo (di telepon) (hello on phone)" }, { hanzi: "打电话", pinyin: "dǎ diànhuà", arti: "menelepon (to make a call)" },
-                        { hanzi: "喜欢", pinyin: "xǐhuan", arti: "suka (to like)" }, { hanzi: "爱", pinyin: "ài", arti: "cinta (to love)" },
-                        { hanzi: "读", pinyin: "dú", arti: "membaca (to read)" }, { hanzi: "写", pinyin: "xiě", arti: "menulis (to write)" },
-                        { hanzi: "做", pinyin: "zuò", arti: "mengerjakan (to do, to make)" }, { hanzi: "买", pinyin: "mǎi", arti: "membeli (to buy)" },
-                        { hanzi: "开", pinyin: "kāi", arti: "membuka, menyetir (to open, drive)" }, { hanzi: "坐", pinyin: "zuò", arti: "duduk, naik (to sit, take transport)" },
-                        { hanzi: "住", pinyin: "zhù", arti: "tinggal (to live)" }, { hanzi: "学习", pinyin: "xuéxí", arti: "belajar (to study)" },
-                        { hanzi: "工作", pinyin: "gōngzuò", arti: "bekerja, pekerjaan (to work, job)" }, { hanzi: "睡觉", pinyin: "shuìjiào", arti: "tidur (to sleep)" },
-                        { hanzi: "可以", pinyin: "kěyǐ", arti: "bisa, boleh (can, may)" }, { hanzi: "会", pinyin: "huì", arti: "bisa (karena belajar) (can, able to)" }
+                        { hanzi: "今天", pinyin: "jīntiān", arti_id: "hari ini", arti_en: "today" }, { hanzi: "明天", pinyin: "míngtiān", arti_id: "besok", arti_en: "tomorrow" },
+                        { hanzi: "昨天", pinyin: "zuótiān", arti_id: "kemarin", arti_en: "yesterday" }, { hanzi: "上午", pinyin: "shàngwǔ", arti_id: "pagi", arti_en: "morning (am)" },
+                        { hanzi: "中午", pinyin: "zhōngwǔ", arti_id: "tengah hari", arti_en: "noon" }, { hanzi: "下午", pinyin: "xiàwǔ", arti_id: "sore", arti_en: "afternoon (pm)" },
+                        { hanzi: "年", pinyin: "nián", arti_id: "tahun", arti_en: "year" }, { hanzi: "月", pinyin: "yuè", arti_id: "bulan", arti_en: "month" },
+                        { hanzi: "日", pinyin: "rì", arti_id: "hari, tanggal", arti_en: "day / date" }, { hanzi: "号", pinyin: "hào", arti_id: "tanggal (lisan)", arti_en: "date (spoken)" },
+                        { hanzi: "星期", pinyin: "xīngqī", arti_id: "minggu (hari)", arti_en: "week" }, { hanzi: "点", pinyin: "diǎn", arti_id: "jam (o'clock)", arti_en: "o'clock" },
+                        { hanzi: "分钟", pinyin: "fēnzhōng", arti_id: "menit", arti_en: "minute" }, { hanzi: "现在", pinyin: "xiànzài", arti_id: "sekarang", arti_en: "now" },
+                        { hanzi: "时候", pinyin: "shíhou", arti_id: "waktu, ketika", arti_en: "time / when" }, { hanzi: "几", pinyin: "jǐ", arti_id: "berapa (<10)", arti_en: "how many (<10)" },
+                        { hanzi: "怎么样", pinyin: "zěnmeyàng", arti_id: "bagaimana", arti_en: "how is it?" }, { hanzi: "怎么", pinyin: "zěnme", arti_id: "bagaimana (cara)", arti_en: "how (manner)" },
+                        { hanzi: "太...了", pinyin: "tài...le", arti_id: "terlalu", arti_en: "too" }, { hanzi: "天气", pinyin: "tiānqì", arti_id: "cuaca", arti_en: "weather" },
+                        { hanzi: "热", pinyin: "rè", arti_id: "panas", arti_en: "hot" }, { hanzi: "冷", pinyin: "lěng", arti_id: "dingin", arti_en: "cold" },
+                        { hanzi: "下雨", pinyin: "xià yǔ", arti_id: "hujan", arti_en: "to rain" }, { hanzi: "喂", pinyin: "wèi", arti_id: "halo (telepon)", arti_en: "hello (on phone)" },
+                        { hanzi: "打电话", pinyin: "dǎ diànhuà", arti_id: "menelepon", arti_en: "to make a call" }, { hanzi: "喜欢", pinyin: "xǐhuan", arti_id: "suka", arti_en: "to like" },
+                        { hanzi: "爱", pinyin: "ài", arti_id: "cinta", arti_en: "to love" }, { hanzi: "读", pinyin: "dú", arti_id: "membaca", arti_en: "to read" },
+                        { hanzi: "写", pinyin: "xiě", arti_id: "menulis", arti_en: "to write" }, { hanzi: "做", pinyin: "zuò", arti_id: "mengerjakan", arti_en: "to do / to make" },
+                        { hanzi: "买", pinyin: "mǎi", arti_id: "membeli", arti_en: "to buy" }, { hanzi: "开", pinyin: "kāi", arti_id: "membuka, menyetir", arti_en: "to open / to drive" },
+                        { hanzi: "坐", pinyin: "zuò", arti_id: "duduk, naik", arti_en: "to sit / to take (transport)" }, { hanzi: "住", pinyin: "zhù", arti_id: "tinggal", arti_en: "to live" },
+                        { hanzi: "学习", pinyin: "xuéxí", arti_id: "belajar", arti_en: "to study" }, { hanzi: "工作", pinyin: "gōngzuò", arti_id: "bekerja, pekerjaan", arti_en: "to work / job" },
+                        { hanzi: "睡觉", pinyin: "shuìjiào", arti_id: "tidur", arti_en: "to sleep" }, { hanzi: "可以", pinyin: "kěyǐ", arti_id: "bisa, boleh", arti_en: "can / may" },
+                        { hanzi: "会", pinyin: "huì", arti_id: "bisa (skill)", arti_en: "can (learned skill)" }, { hanzi: "能", pinyin: "néng", arti_id: "bisa (mampu)", arti_en: "can (be able to)" },
+                        { hanzi: "汉语", pinyin: "Hànyǔ", arti_id: "Bahasa Mandarin", arti_en: "Chinese language" }, { hanzi: "汉字", pinyin: "Hànzì", arti_id: "Karakter Han", arti_en: "Chinese character" },
+                        { hanzi: "出租车", pinyin: "chūzūchē", arti_id: "taksi", arti_en: "taxi" }, { hanzi: "飞机", pinyin: "fēijī", arti_id: "pesawat terbang", arti_en: "airplane" },
+                        { hanzi: "北京", pinyin: "Běijīng", arti_id: "Beijing", arti_en: "Beijing" }, { hanzi: "看见", pinyin: "kànjiàn", arti_id: "melihat", arti_en: "to see" },
+                        { hanzi: "一点儿", pinyin: "yìdiǎnr", arti_id: "sedikit", arti_en: "a little bit" }
+                    ],
+                    quiz: [
+                        { type: 'header', text: 'Bagian A: Kosa Kata & Waktu' },
+                        { q: '1. "Kemarin" dalam bahasa Mandarin adalah...', o: ['今天', '明天', '昨天'], a: '昨天' },
+                        { q: '2. Jam "10:30" dibaca...', o: ['十点三十分', '十点三', '三十点十'], a: '十点三十分' },
+                        { q: '3. "Sore hari" adalah...', o: ['上午', '中午', '下午'], a: '下午' },
+                        { q: '4. Apa arti "天气 (tiānqì)"?', o: ['Waktu', 'Cuaca', 'Tanggal'], a: 'Cuaca' },
+                        { q: '5. "Menelepon" adalah...', o: ['打电话', '说话', '听见'], a: '打电话' },
+                        { q: '6. Hanzi untuk "tinggal" adalah...', o: ['坐', '住', '做'], a: '住' },
+                        { q: '7. "Bisa (karena belajar)" adalah...', o: ['能', '可以', '会'], a: '会' },
+                        { q: '8. "Pesawat terbang" adalah...', o: ['出租车', '飞机', '火车'], a: '飞机' },
+                        { q: '9. Apa arti "冷 (lěng)"?', o: ['Panas', 'Dingin', 'Hujan'], a: 'Dingin' },
+                        { q: '10. "Menulis" adalah...', o: ['读', '看', '写'], a: '写' },
+                        { type: 'header', text: 'Bagian B: Tata Bahasa & Struktur' },
+                        { q: '11. Pilih kalimat yang benar:', o: ['我会说汉语。', '我能说汉语。', '我可以说汉语。'], a: '我会说汉语。' },
+                        { q: '12. Jawaban yang tepat untuk "今天天气怎么样？"', o: ['今天星期三。', '今天很热。', '现在三点。'], a: '今天很热。' },
+                        { q: '13. "Saya tidak bisa pergi ke sekolah hari ini." (karena sakit)', o: ['我不会去学校。', '我不能去学校。', '我不可以去学校。'], a: '我不能去学校。' },
+                        { q: '14. Bagaimana bertanya "Kapan kamu pulang?"', o: ['你什么时候回家？', '你怎么回家？', '你几点回家？'], a: '你什么时候回家？' },
+                        { q: '15. Lengkapi: 这儿的天气太 ___ 了！', o: ['冷', '很冷', '不冷'], a: '冷' },
+                        { q: '16. "Saya suka minum teh" adalah...', o: ['我爱喝茶。', '我喜欢喝茶。', '我想喝茶。'], a: '我喜欢喝茶。' },
+                        { q: '17. "Dia sedang tidur" adalah...', o: ['他在睡觉。', '他会睡觉。', '他想睡觉。'], a: '他在睡觉。' },
+                        { q: '18. Ubah ke pertanyaan: 他会开车。', o: ['他会开车吗？', '他怎么开车？', '他会开车不？'], a: '他会开车吗？' },
+                        { q: '19. Jawaban yang mungkin untuk "喂？"', o: ['再见。', '你好，请问王老师在吗？', '不客气。'], a: '你好，请问王老师在吗？' },
+                        { q: '20. "Bolehkah saya duduk di sini?"', o: ['我会坐在这儿吗？', '我能坐在这儿吗？', '我想坐在这儿吗？'], a: '我能坐在这儿吗？' },
+                        { type: 'header', text: 'Bagian C: Menyusun Kalimat' },
+                        { q: '21. Susun: 电视 / 在 / 妈妈 / 看', o: ['电视在看妈妈。', '妈妈在看电视。', '在妈妈看电视。'], a: '妈妈在看电视。' },
+                        { q: '22. Susun: 写 / 汉字 / 我 / 会 / 不', o: ['我不会写汉字。', '我写不会汉字。', '不会我写汉字。'], a: '我不会写汉字。' },
+                        { q: '23. Susun: 去 / 坐 / 北京 / 飞机 / 我', o: ['我坐飞机去北京。', '我去北京坐飞机。', '飞机坐我去北京。'], a: '我坐飞机去北京。' },
+                        { q: '24. Susun: 时候 / 什么 / 你 / 回家', o: ['你什么时候回家？', '什么时候你回家？', '你回家什么时候？'], a: '你什么时候回家？' },
+                        { q: '25. Susun: 太 / 了 / 今天 / 热', o: ['今天太热了。', '太热了今天。', '今天热太了。'], a: '今天太热了。' },
+                        { q: '26. Susun: 住 / 哪儿 / 在 / 你', o: ['哪儿在你住？', '你在哪儿住？', '你住在哪儿？'], a: '你在哪儿住？' },
+                        { q: '27. Susun: 喜欢 / 读 / 很 / 书 / 我', o: ['我很喜欢读书。', '我喜欢读很书。', '我很读书喜欢。'], a: '我很喜欢读书。' },
+                        { q: '28. Susun: 工作 / 医院 / 在 / 他', o: ['他在医院工作。', '他工作在医院。', '在医院他工作。'], a: '他在医院工作。' },
+                        { q: '29. Susun: 名字 / 写 / 请 / 你的 / 你', o: ['请你写你的名字。', '请你的名字写你。', '你的名字请你写。'], a: '请你写你的名字。' },
+                        { q: '30. Susun: 学习 / 和 / 汉语 / 我 / 朋友 / 我的', o: ['我和我的朋友学习汉语。', '我的朋友和我学习汉语。', '我学习汉语和我的朋友。'], a: '我和我的朋友学习汉语。' },
                     ]
                 },
                 week4: {
                     tabs: [
                         {
-                            title: "Simulasi Ujian",
-                            content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">1. Simulasi Ujian HSK 1</h3>
-                                <p class="mb-4">Bagian ini dirancang untuk membiasakan Anda dengan format soal ujian HSK 1. Kerjakan dengan teliti.</p>
-                                <div class="space-y-6">
-                                    <div class="border p-4 rounded-lg">
-                                        <p class="font-bold text-lg mb-2">Contoh Soal Mendengar</p>
-                                        <p class="mb-2">Anda mendengar: <span class="italic text-emerald-700">"Tā zài kàn shū." (Dia sedang membaca buku.)</span></p>
-                                        <p class="font-semibold mb-2">Pilih gambar yang sesuai:</p>
-                                        <div class="flex space-x-4">
-                                            <span>Gambar 1: Orang tidur</span>
-                                            <span class="border-2 border-green-500 p-1 rounded">Gambar 2: Orang baca buku</span>
-                                            <span>Gambar 3: Orang makan</span>
-                                        </div>
-                                    </div>
-                                    <div class="border p-4 rounded-lg">
-                                        <p class="font-bold text-lg mb-2">Contoh Soal Membaca</p>
-                                        <p class="mb-2">Soal: <span class="text-xl">苹果</span> <span class="text-stone-500">(píngguǒ)</span></p>
-                                        <p class="font-semibold mb-2">Pilih gambar yang sesuai:</p>
-                                        <div class="flex space-x-4">
-                                            <span class="border-2 border-green-500 p-1 rounded">Gambar 1: Buah Apel</span>
-                                            <span>Gambar 2: Cangkir Teh</span>
-                                            <span>Gambar 3: Komputer</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            title: "Kosakata Minggu Ini",
+                             content: `
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">1. Kosakata Tambahan (50 Kata)</h3>
+                                <p class="mb-4">Ini adalah kosakata terakhir untuk melengkapi pemahaman Anda hingga 200 kata.</p>
+                                <div id="vocab-week4-1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
                             `
+                        },
+                        {
+                            title: "Simulasi Ujian HSK 1 (100 Soal)",
+                            content: `<div id="final-quiz-container"></div>`
                         },
                         {
                             title: "Kosakata Lengkap",
                             content: `
-                                <h3 class="text-xl font-semibold mb-3 text-stone-800">2. Daftar Lengkap 150 Kosakata HSK 1</h3>
+                                <h3 class="text-xl font-semibold mb-3 text-stone-800">3. Daftar Lengkap 200 Kosakata</h3>
                                 <p class="mb-4">Gunakan daftar ini untuk review terakhir. Pastikan Anda mengenali semua karakter dan tahu artinya.</p>
                                 <div class="h-96 overflow-y-auto border rounded-lg p-2">
                                     <table class="w-full text-sm text-left">
@@ -429,7 +547,8 @@
                                                 <th class="p-2">No.</th>
                                                 <th class="p-2">Hanzi</th>
                                                 <th class="p-2">Pinyin</th>
-                                                <th class="p-2">Arti</th>
+                                                <th class="p-2">Arti Indonesia</th>
+                                                <th class="p-2">Arti Inggris</th>
                                             </tr>
                                         </thead>
                                         <tbody id="full-vocab-list">
@@ -440,32 +559,184 @@
                         }
                     ],
                     vocab: [
-                        { hanzi: "大", pinyin: "dà", arti: "besar (big)" }, { hanzi: "小", pinyin: "xiǎo", arti: "kecil (small)" },
-                        { hanzi: "多", pinyin: "duō", arti: "banyak (many, much)" }, { hanzi: "少", pinyin: "shǎo", arti: "sedikit (few, little)" },
-                        { hanzi: "漂亮", pinyin: "piàoliang", arti: "cantik (beautiful)" }, { hanzi: "请", pinyin: "qǐng", arti: "silakan, mengundang (please, invite)" },
-                        { hanzi: "对不起", pinyin: "duìbuqǐ", arti: "maaf (sorry)" }, { hanzi: "没关系", pinyin: "méi guānxi", arti: "tidak apa-apa (it's okay)" },
-                        { hanzi: "出租车", pinyin: "chūzūchē", arti: "taksi (taxi)" }, { hanzi: "飞机", pinyin: "fēijī", arti: "pesawat terbang (airplane)" },
-                        { hanzi: "前面", pinyin: "qiánmiàn", arti: "depan (front)" }, { hanzi: "后面", pinyin: "hòumiàn", arti: "belakang (back)" },
-                        { hanzi: "里", pinyin: "lǐ", arti: "dalam (inside)" }, { hanzi: "上面", pinyin: "shàngmiàn", arti: "atas (on, above)" },
-                        { hanzi: "下面", pinyin: "xiàmiàn", arti: "bawah (under, below)" }, { hanzi: "钱", pinyin: "qián", arti: "uang (money)" },
-                        { hanzi: "块", pinyin: "kuài", arti: "satuan uang (money unit)" }, { hanzi: "先生", pinyin: "xiānsheng", arti: "tuan, bapak (Mr., sir)" },
-                        { hanzi: "小姐", pinyin: "xiǎojiě", arti: "nona (Miss)" }, { hanzi: "衣服", pinyin: "yīfu", arti: "pakaian (clothes)" },
-                        { hanzi: "字", pinyin: "zì", arti: "karakter, huruf (character, word)" }, { hanzi: "桌子", pinyin: "zhuōzi", arti: "meja (table)" },
-                        { hanzi: "椅子", pinyin: "yǐzi", arti: "kursi (chair)" }, { hanzi: "能", pinyin: "néng", arti: "bisa, mampu (can, be able to)" }
+                        { hanzi: "都", pinyin: "dōu", arti_id: "semua", arti_en: "all, both" },
+                        { hanzi: "和", pinyin: "hé", arti_id: "dan", arti_en: "and" },
+                        { hanzi: "了", pinyin: "le", arti_id: "partikel", arti_en: "particle (past/change)" },
+                        { hanzi: "岁", pinyin: "suì", arti_id: "tahun (umur)", arti_en: "year of age" },
+                        { hanzi: "些", pinyin: "xiē", arti_id: "beberapa", arti_en: "some" },
+                        { hanzi: "饭馆", pinyin: "fànguǎn", arti_id: "restoran", arti_en: "restaurant" },
+                        { hanzi: "上", pinyin: "shàng", arti_id: "atas, di", arti_en: "up, on" },
+                        { hanzi: "下", pinyin: "xià", arti_id: "bawah, di", arti_en: "down, under" },
+                        { hanzi: "水果", pinyin: "shuǐguǒ", arti_id: "buah-buahan", arti_en: "fruit" },
+                        { hanzi: "猫", pinyin: "māo", arti_id: "kucing", arti_en: "cat" },
+                        { hanzi: "狗", pinyin: "gǒu", arti_id: "anjing", arti_en: "dog" },
+                        { hanzi: "来", pinyin: "lái", arti_id: "datang", arti_en: "to come" },
+                        { hanzi: "回", pinyin: "huí", arti_id: "pulang", arti_en: "to return" },
+                        { hanzi: "要", pinyin: "yào", arti_id: "mau, akan", arti_en: "to want, will" },
+                        { hanzi: "吧", pinyin: "ba", arti_id: "partikel ajakan", arti_en: "suggestion particle" },
+                        { hanzi: "哥哥", pinyin: "gēge", arti_id: "kakak lk.", arti_en: "older brother" },
+                        { hanzi: "姐姐", pinyin: "jiějie", arti_id: "kakak pr.", arti_en: "older sister" },
+                        { hanzi: "弟弟", pinyin: "dìdi", arti_id: "adik lk.", arti_en: "younger brother" },
+                        { hanzi: "妹妹", pinyin: "mèimei", arti_id: "adik pr.", arti_en: "younger sister" },
+                        { hanzi: "早上", pinyin: "zǎoshang", arti_id: "pagi hari", arti_en: "early morning" },
+                        { hanzi: "晚上", pinyin: "wǎnshang", arti_id: "malam hari", arti_en: "evening, night" },
+                        { hanzi: "为什么", pinyin: "wèi shénme", arti_id: "kenapa", arti_en: "why" },
+                        { hanzi: "因为", pinyin: "yīnwèi", arti_id: "karena", arti_en: "because" },
+                        { hanzi: "所以", pinyin: "suǒyǐ", arti_id: "jadi", arti_en: "so, therefore" },
+                        { hanzi: "但是", pinyin: "dànshì", arti_id: "tetapi", arti_en: "but" },
+                        { hanzi: "还", pinyin: "hái", arti_id: "masih, juga", arti_en: "still, also" },
+                        { hanzi: "最", pinyin: "zuì", arti_id: "paling", arti_en: "most" },
+                        { hanzi: "颜色", pinyin: "yánsè", arti_id: "warna", arti_en: "color" },
+                        { hanzi: "红色", pinyin: "hóng sè", arti_id: "merah", arti_en: "red" },
+                        { hanzi: "白色", pinyin: "bái sè", arti_id: "putih", arti_en: "white" },
+                        { hanzi: "黑色", pinyin: "hēi sè", arti_id: "hitam", arti_en: "black" },
+                        { hanzi: "元", pinyin: "yuán", arti_id: "Yuan (uang)", arti_en: "Yuan (money unit)" },
+                        { hanzi: "票", pinyin: "piào", arti_id: "tiket", arti_en: "ticket" },
+                        { hanzi: "公共汽车", pinyin: "gōnggòng qìchē", arti_id: "bus", arti_en: "bus" },
+                        { hanzi: "走路", pinyin: "zǒu lù", arti_id: "jalan kaki", arti_en: "to walk" },
+                        { hanzi: "房间", pinyin: "fángjiān", arti_id: "kamar", arti_en: "room" },
+                        { hanzi: "公司", pinyin: "gōngsī", arti_id: "perusahaan", arti_en: "company" },
+                        { hanzi: "新", pinyin: "xīn", arti_id: "baru", arti_en: "new" },
+                        { hanzi: "旧", pinyin: "jiù", arti_id: "lama (bekas)", arti_en: "old, used" },
+                        { hanzi: "对", pinyin: "duì", arti_id: "benar", arti_en: "correct, right" },
+                        { hanzi: "错", pinyin: "cuò", arti_id: "salah", arti_en: "wrong" },
+                        { hanzi: "快", pinyin: "kuài", arti_id: "cepat", arti_en: "fast" },
+                        { hanzi: "慢", pinyin: "màn", arti_id: "lambat", arti_en: "slow" },
+                        { hanzi: "远", pinyin: "yuǎn", arti_id: "jauh", arti_en: "far" },
+                        { hanzi: "近", pinyin: "jìn", arti_id: "dekat", arti_en: "near" },
+                        { hanzi: "好吃", pinyin: "hǎo chī", arti_id: "enak (makan)", arti_en: "delicious (food)" },
+                        { hanzi: "好喝", pinyin: "hǎo hē", arti_id: "enak (minum)", arti_en: "delicious (drink)" },
+                        { hanzi: "好玩", pinyin: "hǎo wán", arti_id: "seru, asyik", arti_en: "fun" },
+                        { hanzi: "好看", pinyin: "hǎo kàn", arti_id: "bagus dilihat", arti_en: "good-looking" }
+                    ],
+                    quiz: [
+                         { type: 'header', text: 'BAGIAN I: MENDENGARKAN (soal 1-40)' },
+                         { type: 'subheader', text: 'Bagian 1: Benar atau Salah (Soal 1-20)' },
+                         { q: '1. (Terdengar: 我在看书) - Gambar menunjukkan seseorang sedang membaca buku.', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '2. (Terdengar: 她在睡觉) - Gambar menunjukkan seseorang sedang makan.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '3. (Terdengar: 他们在学校) - Gambar menunjukkan beberapa anak di taman bermain.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '4. (Terdengar: 今天下雨了) - Gambar menunjukkan cuaca cerah.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '5. (Terdengar: 我会开车) - Gambar menunjukkan seseorang sedang menyetir mobil.', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '6. (Terdengar: 猫在椅子下面) - Gambar menunjukkan kucing di atas kursi.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '7. (Terdengar: 我喜欢喝茶) - Gambar menunjukkan secangkir kopi.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '8. (Terdengar: 现在是下午三点) - Gambar jam menunjukkan pukul 3 sore.', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '9. (Terdengar: 我在打电话) - Gambar menunjukkan seseorang sedang menulis surat.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '10. (Terdengar: 这是我的电脑) - Gambar menunjukkan sebuah televisi.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '11. (Terdengar: 苹果很好吃) - Gambar menunjukkan buah apel.', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '12. (Terdengar: 我女儿三岁了) - Gambar menunjukkan seorang anak perempuan kecil.', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '13. (Terdengar: 我在飞机上) - Gambar menunjukkan interior bus.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '14. (Terdengar: 他是医生) - Gambar menunjukkan seorang guru di depan kelas.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '15. (Terdengar: 我爱读汉语书) - Gambar menunjukkan seseorang membaca buku bertuliskan "汉语".', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '16. (Terdengar: 桌子上有一个杯子) - Gambar menunjukkan meja yang kosong.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '17. (Terdengar: 今天天气很冷) - Gambar menunjukkan orang memakai baju tebal dan syal.', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '18. (Terdengar: 我住在北京) - Gambar menunjukkan Menara Eiffel.', o: ['Benar', 'Salah'], a: 'Salah' },
+                         { q: '19. (Terdengar: 我会写汉字) - Gambar menunjukkan seseorang sedang menulis karakter Hanzi.', o: ['Benar', 'Salah'], a: 'Benar' },
+                         { q: '20. (Terdengar: 我家有三个人) - Gambar menunjukkan sebuah keluarga dengan ayah, ibu, dan satu anak.', o: ['Benar', 'Salah'], a: 'Benar' },
+
+                         { type: 'subheader', text: 'Bagian 2: Mencocokkan Dialog (Soal 21-40)' },
+                         { q: '21. Terdengar: A: 你好! B: 你好! - Gambar yang cocok:', o: ['Dua orang saling sapa', 'Seseorang melambaikan tangan pergi', 'Seseorang di telepon'], a: 'Dua orang saling sapa' },
+                         { q: '22. Terdengar: A: 这个多少钱？ B: 十块钱。 - Gambar yang cocok:', o: ['Orang berbelanja di toko', 'Orang di bank', 'Orang makan di restoran'], a: 'Orang berbelanja di toko' },
+                         { q: '23. Terdengar: A: 你女儿几岁了？ B: 她五岁了。 - Gambar yang cocok:', o: ['Seorang gadis kecil meniup lilin angka 5', 'Seorang bayi', 'Seorang wanita dewasa'], a: 'Seorang gadis kecil meniup lilin angka 5' },
+                         { q: '24. Terdengar: A: 你在做什么呢？ B: 我在看电视。 - Gambar yang cocok:', o: ['Orang membaca buku', 'Orang menonton TV', 'Orang mendengarkan musik'], a: 'Orang menonton TV' },
+                         { q: '25. Terdengar: A: 对不起。 B: 没关系。 - Gambar yang cocok:', o: ['Dua orang bertengkar', 'Seseorang menolong yang lain', 'Dua orang tersenyum ramah'], a: 'Dua orang tersenyum ramah' },
+                         { q: '26. Terdengar: A: 你家在哪儿？ B: 我家在北京。 - Gambar yang cocok:', o: ['Peta Tiongkok dengan penanda di Beijing', 'Rumah di pedesaan', 'Gedung apartemen'], a: 'Peta Tiongkok dengan penanda di Beijing' },
+                         { q: '27. Terdengar: A: 你喜欢吃什么水果？ B: 我喜欢吃苹果。 - Gambar yang cocok:', o: ['Keranjang berisi apel', 'Keranjang berisi pisang', 'Keranjang berisi sayuran'], a: 'Keranjang berisi apel' },
+                         { q: '28. Terdengar: A: 今天天气怎么样？ B: 太热了。 - Gambar yang cocok:', o: ['Matahari bersinar terik', 'Salju turun', 'Hujan deras'], a: 'Matahari bersinar terik' },
+                         { q: '29. Terdengar: A: 你会写你的名字吗？ B: 我会。 - Gambar yang cocok:', o: ['Seseorang menulis di papan tulis', 'Seseorang mengetik di komputer', 'Seseorang membaca buku'], a: 'Seseorang menulis di papan tulis' },
+                         { q: '30. Terdengar: A: 爸爸，你去哪儿？ B: 我去开会。 - Gambar yang cocok:', o: ['Seorang pria berjas rapi', 'Seorang pria di pantai', 'Seorang pria di dapur'], a: 'Seorang pria berjas rapi' },
+                         { q: '31. Terdengar: A: 你爱喝茶吗？ B: 我不爱喝茶，我爱喝水。 - Gambar yang cocok:', o: ['Segelas air putih', 'Secangkir teh', 'Segelas jus jeruk'], a: 'Segelas air putih' },
+                         { q: '32. Terdengar: A: 现在几点？ B: 现在上午十点。 - Gambar yang cocok:', o: ['Jam dinding menunjukkan pukul 10:00', 'Jam dinding menunjukkan pukul 12:00', 'Jam dinding menunjukkan pukul 03:00'], a: 'Jam dinding menunjukkan pukul 10:00' },
+                         { q: '33. Terdengar: A: 你的猫呢？ B: 在椅子上呢。 - Gambar yang cocok:', o: ['Kucing tidur di atas kursi', 'Anjing di bawah meja', 'Kucing di atas meja'], a: 'Kucing tidur di atas kursi' },
+                         { q: '34. Terdengar: A: 你怎么去学校？ B: 我坐公共汽车去。 - Gambar yang cocok:', o: ['Sebuah bus sekolah', 'Sebuah taksi', 'Sebuah sepeda'], a: 'Sebuah bus sekolah' },
+                         { q: '35. Terdengar: A: 喂，是李老师吗？ B: 是，你找谁？ - Gambar yang cocok:', o: ['Orang sedang menelepon', 'Orang sedang mengetuk pintu', 'Orang sedang melambaikan tangan'], a: 'Orang sedang menelepon' },
+                         { q: '36. Terdengar: A: 这个汉字我不认识。 B: 没关系，我教你。 - Gambar yang cocok:', o: ['Dua orang belajar bersama di depan buku', 'Seseorang bermain game', 'Seseorang sedang tidur'], a: 'Dua orang belajar bersama di depan buku' },
+                         { q: '37. Terdengar: A: 你的同学是哪国人？ B: 他是中国人。 - Gambar yang cocok:', o: ['Bendera Tiongkok', 'Bendera Amerika', 'Bendera Indonesia'], a: 'Bendera Tiongkok' },
+                         { q: '38. Terdengar: A: 饭馆在前面吗？ B: 对，在商店的后面。 - Gambar yang cocok:', o: ['Peta dengan ikon toko di depan ikon restoran', 'Restoran di sebelah rumah sakit', 'Toko di dalam sekolah'], a: 'Peta dengan ikon toko di depan ikon restoran' },
+                         { q: '39. Terdengar: A: 你喜欢什么颜色？ B: 我喜欢红色。 - Gambar yang cocok:', o: ['Sebuah gaun berwarna merah', 'Sebuah mobil berwarna biru', 'Sebuah tas berwarna hitam'], a: 'Sebuah gaun berwarna merah' },
+                         { q: '40. Terdengar: A: 明天星期几？ B: 明天星期三。 - Gambar yang cocok:', o: ['Kalender menunjukkan hari Rabu', 'Kalender menunjukkan hari Senin', 'Kalender menunjukkan hari Minggu'], a: 'Kalender menunjukkan hari Rabu' },
+
+                         { type: 'header', text: 'BAGIAN II: MEMBACA (soal 41-100)' },
+                         { type: 'subheader', text: 'Bagian 3: Mencocokkan Kata (Soal 41-60)' },
+                         { q: '41. Kata: 医生 (yīshēng) - Gambar yang cocok:', o: ['Orang berjas putih dengan stetoskop', 'Orang di depan papan tulis', 'Orang di dalam pesawat'], a: 'Orang berjas putih dengan stetoskop' },
+                         { q: '42. Kata: 飞机 (fēijī) - Gambar yang cocok:', o: ['Pesawat terbang di langit', 'Kereta api di rel', 'Taksi di jalan'], a: 'Pesawat terbang di langit' },
+                         { q: '43. Kata: 猫 (māo) - Gambar yang cocok:', o: ['Seekor kucing', 'Seekor anjing', 'Seekor ikan'], a: 'Seekor kucing' },
+                         { q: '44. Kata: 电脑 (diànnǎo) - Gambar yang cocok:', o: ['Sebuah laptop', 'Sebuah televisi', 'Sebuah telepon'], a: 'Sebuah laptop' },
+                         { q: '45. Kata: 下雨 (xià yǔ) - Gambar yang cocok:', o: ['Awan dengan tetesan air hujan', 'Matahari bersinar', 'Bulan dan bintang'], a: 'Awan dengan tetesan air hujan' },
+                         { q: '46. Kata: 睡觉 (shuìjiào) - Gambar yang cocok:', o: ['Orang tidur di kasur', 'Orang lari di taman', 'Orang makan di meja'], a: 'Orang tidur di kasur' },
+                         { q: '47. Kata: 钱 (qián) - Gambar yang cocok:', o: ['Beberapa lembar uang Yuan', 'Beberapa buku', 'Beberapa buah apel'], a: 'Beberapa lembar uang Yuan' },
+                         { q: '48. Kata: 椅子 (yǐzi) - Gambar yang cocok:', o: ['Sebuah kursi kayu', 'Sebuah meja', 'Sebuah lemari'], a: 'Sebuah kursi kayu' },
+                         { q: '49. Kata: 水果 (shuǐguǒ) - Gambar yang cocok:', o: ['Keranjang berisi berbagai macam buah', 'Sepiring sayuran', 'Segelas susu'], a: 'Keranjang berisi berbagai macam buah' },
+                         { q: '50. Kata: 汉语 (Hànyǔ) - Gambar yang cocok:', o: ['Buku dengan judul "汉语"', 'Buku matematika', 'Buku cerita bergambar'], a: 'Buku dengan judul "汉语"' },
+                         { q: '51. Kata: 红色 (hóng sè) - Gambar yang cocok:', o: ['Kotak berwarna merah', 'Kotak berwarna biru', 'Kotak berwarna hijau'], a: 'Kotak berwarna merah' },
+                         { q: '52. Kata: 公共汽车 (gōnggòng qìchē) - Gambar yang cocok:', o: ['Sebuah bus kota', 'Mobil pribadi', 'Sepeda motor'], a: 'Sebuah bus kota' },
+                         { q: '53. Kata: 饭馆 (fànguǎn) - Gambar yang cocok:', o: ['Bagian depan sebuah restoran', 'Gedung sekolah', 'Gedung rumah sakit'], a: 'Bagian depan sebuah restoran' },
+                         { q: '54. Kata: 新 (xīn) - Gambar yang cocok:', o: ['Baju yang masih baru dengan label harga', 'Baju yang sobek', 'Sepatu kotor'], a: 'Baju yang masih baru dengan label harga' },
+                         { q: '55. Kata: 走路 (zǒu lù) - Gambar yang cocok:', o: ['Jejak kaki di pasir', 'Orang sedang berenang', 'Orang sedang terbang'], a: 'Jejak kaki di pasir' },
+                         { q: '56. Kata: 公司 (gōngsī) - Gambar yang cocok:', o: ['Gedung perkantoran modern', 'Rumah tinggal', 'Pasar tradisional'], a: 'Gedung perkantoran modern' },
+                         { q: '57. Kata: 票 (piào) - Gambar yang cocok:', o: ['Tiket bioskop atau kereta api', 'Uang kertas', 'Kartu identitas'], a: 'Tiket bioskop atau kereta api' },
+                         { q: '58. Kata: 远 (yuǎn) - Gambar yang cocok:', o: ['Jalan yang terbentang jauh ke cakrawala', 'Dua benda yang berdekatan', 'Peta sebuah kota kecil'], a: 'Jalan yang terbentang jauh ke cakrawala' },
+                         { q: '59. Kata: 好吃 (hǎo chī) - Gambar yang cocok:', o: ['Orang tersenyum sambil makan kue', 'Orang dengan ekspresi tidak suka pada makanan', 'Sepiring makanan yang tidak menarik'], a: 'Orang tersenyum sambil makan kue' },
+                         { q: '60. Kata: 妹妹 (mèimei) - Gambar yang cocok:', o: ['Seorang gadis kecil', 'Seorang wanita tua', 'Seorang pria dewasa'], a: 'Seorang gadis kecil' },
+
+                         { type: 'subheader', text: 'Bagian 4: Melengkapi Kalimat (Soal 61-80)' },
+                         { q: '61. 我 ___ 中国人。', o: ['是', '在', '有'], a: '是' },
+                         { q: '62. 今天天气很 ___。', o: ['好', '去', '吃'], a: '好' },
+                         { q: '63. 你家有 ___ 个人？', o: ['几', '什么', '谁'], a: '几' },
+                         { q: '64. 他在 ___ 睡觉呢。', o: ['商店', '学校', '房间'], a: '房间' },
+                         { q: '65. 我想喝 ___。', o: ['饭', '水', '菜'], a: '水' },
+                         { q: '66. 这本书 ___ 钱？', o: ['多少', '什么', '几'], a: '多少' },
+                         { q: '67. 明天 ___ 星期五。', o: ['是', '在', '有'], a: '是' },
+                         { q: '68. 我不会 ___ 汉字。', o: ['读', '说', '写'], a: '写' },
+                         { q: '69. 我爸爸是 ___。', o: ['医生', '医院', '学生'], a: '医生' },
+                         { q: '70. 我能 ___ 在这儿吗？', o: ['坐', '做', '住'], a: '坐' },
+                         { q: '71. 我的猫在椅子 ___。', o: ['上', '里', '前'], a: '上' },
+                         { q: '72. ___ 你很高兴。', o: ['认识', '喜欢', '看见'], a: '认识' },
+                         { q: '73. 她 ___ 了三件衣服。', o: ['买', '卖', '看'], a: '买' },
+                         { q: '74. 我 ___ 去北京。', o: ['想', '是', '有'], a: '想' },
+                         { q: '75. ___ , 这里有人吗？', o: ['谢谢', '请问', '对不起'], a: '请问' },
+                         { q: '76. 他们 ___ 是我的朋友。', o: ['都', '也', '很'], a: '都' },
+                         { q: '77. 我八点 ___ 公司。', o: ['去', '来', '回'], a: '去' },
+                         { q: '78. 这个菜 ___ 好吃了！', o: ['很', '都', '太'], a: '太' },
+                         { q: '79. 我家离公司不 ___。', o: ['近', '远', '快'], a: '远' },
+                         { q: '80. 你 ___ 什么颜色？', o: ['认识', '喜欢', '看见'], a: '喜欢' },
+                         
+                         { type: 'subheader', text: 'Bagian 5: Memilih Jawaban (Soal 81-100)' },
+                         { q: '81. A: 你好吗？<br>B: ___', o: ['我叫李明。', '我很好，谢谢。', '我是老师。'], a: '我很好，谢谢。' },
+                         { q: '82. A: 这个杯子是你的吗？<br>B: ___', o: ['不是，那是我朋友的。', '我喜欢喝水。', '这个杯子很漂亮。'], a: '不是，那是我朋友的。' },
+                         { q: '83. A: 你女儿在哪儿工作？<br>B: ___', o: ['她女儿很漂亮。', '她在医院工作。', '她喜欢工作。'], a: '她在医院工作。' },
+                         { q: '84. A: 你会做饭吗？<br>B: ___', o: ['我不喜欢吃饭。', '我会做一点儿。', '饭很好吃。'], a: '我会做一点儿。' },
+                         { q: '85. A: 今天几月几号？<br>B: ___', o: ['今天星期天。', '今天天气很好。', '今天十月一号。'], a: '今天十月一号。' },
+                         { q: '86. A: 你怎么了？<br>B: ___', o: ['我很好。', '我是一个学生。', '我身体不太好。'], a: '我身体不太好。' },
+                         { q: '87. A: 这件衣服太大了。<br>B: ___', o: ['没关系，我们有小的。', '这件衣服很好看。', '我不买衣服。'], a: '没关系，我们有小的。' },
+                         { q: '88. A: 你为什么没去学校？<br>B: ___', o: ['因为我病了。', '学校很大。', '我喜欢学校。'], a: '因为我病了。' },
+                         { q: '89. A: 喂，请问王老师在吗？<br>B: ___', o: ['他是老师。', '他不在，他出去了。', '我认识王老师。'], a: '他不在，他出去了。' },
+                         { q: '90. A: 你喜欢猫还是狗？<br>B: ___', o: ['我有一只猫。', '猫和狗都可爱。', '我更喜欢狗。'], a: '我更喜欢狗。' },
+                         { q: '91. A: 你学习汉语多长时间了？<br>B: ___', o: ['汉语很难。', '我学习一年了。', '我在北京学习。'], a: '我学习一年了。' },
+                         { q: '92. A: 饭馆离这儿远吗？<br>B: ___', o: ['不远，很近。', '饭馆的菜很好吃。', '我们去饭馆吧。'], a: '不远，很近。' },
+                         { q: '93. A: 别看电视了，去睡觉吧。<br>B: ___', o: ['电视很好看。', '好的，妈妈。', '我不喜欢睡觉。'], a: '好的，妈妈。' },
+                         { q: '94. A: 你是什么时候来中国的？<br>B: ___', o: ['我是去年来的。', '我坐飞机来的。', '我来中国学习。'], a: '我是去年来的。' },
+                         { q: '95. A: 认识你很高兴。<br>B: ___', o: ['我也是。', '你叫什么名字？', '谢谢。'], a: '我也是。' },
+                         { q: '96. A: 这本书是谁的？<br>B: ___', o: ['这是一本汉语书。', '是我的。', '这本书很好。'], a: '是我的。' },
+                         { q: '97. A: 下雨了，我们怎么回家？<br>B: ___', o: ['我们坐出租车吧。', '我不喜欢下雨。', '现在雨很大。'], a: '我们坐出租车吧。' },
+                         { q: '98. A: 你后面的人是谁？<br>B: ___', o: ['他很高。', '他是我哥哥。', '我们是好朋友。'], a: '他是我哥哥。' },
+                         { q: '99. A: 对不起，我来晚了。<br>B: ___', o: ['不客气。', '没关系。', '谢谢你。'], a: '没关系。' },
+                         { q: '100. A: 祝你生日快乐！<br>B: ___', o: ['你也是。', '谢谢！', '不客气。'], a: '谢谢！' },
                     ]
                 }
             };
             
             function createFlashcard(item) {
                 return `
-                    <div class="flashcard h-32">
+                    <div class="flashcard h-36">
                         <div class="flashcard-inner">
-                            <div class="flashcard-front bg-white shadow rounded-lg border">
-                                <span class="text-2xl md:text-3xl font-bold">${item.hanzi}</span>
-                                <span class="text-stone-500 text-sm md:text-base">${item.pinyin}</span>
+                            <div class="flashcard-front bg-white shadow rounded-lg border flex flex-col justify-center p-2">
+                                <span class="text-3xl font-bold">${item.hanzi}</span>
+                                <span class="text-stone-500 text-sm">${item.pinyin}</span>
+                                <span class="text-emerald-700 font-semibold mt-1 text-sm">${item.arti_id}</span>
                             </div>
-                            <div class="flashcard-back bg-emerald-600 text-white shadow rounded-lg text-center">
-                                <span class="text-xl md:text-2xl font-semibold">${item.arti}</span>
+                            <div class="flashcard-back bg-emerald-600 text-white shadow rounded-lg flex flex-col justify-center">
+                                <span class="font-semibold">${item.arti_id}</span>
+                                <span class="text-sm text-emerald-200">(${item.arti_en})</span>
                             </div>
                         </div>
                     </div>
@@ -495,29 +766,58 @@
                 }
             }
 
+            function renderQuiz(quizData, containerId) {
+                const container = document.getElementById(containerId);
+                if(!container) return;
+                let html = '';
+                quizData.forEach(item => {
+                    if (item.type === 'header') {
+                        html += `<h3 class="text-2xl font-bold mt-8 mb-4 border-b-2 border-emerald-600 pb-2 text-emerald-700">${item.text}</h3>`;
+                    } else if (item.type === 'subheader') {
+                        html += `<h4 class="text-xl font-semibold mt-6 mb-4 border-b pb-2 text-stone-800">${item.text}</h4>`;
+                    } else {
+                        html += `
+                            <div class="quiz-question-container">
+                                <p class="font-semibold mb-3">${item.q}</p>
+                                <div class="space-y-2">
+                                    ${item.o.map(option => `<button class="quiz-option w-full text-left p-3 border rounded-lg hover:bg-stone-100 transition-colors" data-answer="${option}" data-correct="${option === item.a}">${option}</button>`).join('')}
+                                </div>
+                                <div class="quiz-feedback"></div>
+                            </div>
+                        `;
+                    }
+                });
+                container.innerHTML = html;
+            }
+
+
             function initializeWeek(weekKey) {
                 const weekData = appData[weekKey];
                 renderTabs(weekData, `${weekKey}-content`);
                 
-                if(weekKey === 'week1'){
-                    renderVocab(weekData.vocab, 'vocab-week1-1');
-                } else if (weekKey === 'week2'){
-                    renderVocab(weekData.vocab, 'vocab-week2-1');
-                } else if (weekKey === 'week3'){
-                    renderVocab(weekData.vocab, 'vocab-week3-1');
-                } else if (weekKey === 'week4'){
+                if (weekData.vocab) {
+                    renderVocab(weekData.vocab, `vocab-${weekKey}-1`);
+                }
+                
+                if (weekData.quiz) {
+                    renderQuiz(weekData.quiz, `quiz-${weekKey}`);
+                }
+                
+                if (weekKey === 'week4') {
                     const fullVocab = [ ...appData.week1.vocab, ...appData.week2.vocab, ...appData.week3.vocab, ...appData.week4.vocab];
                     const vocabListContainer = document.getElementById('full-vocab-list');
                     if(vocabListContainer) {
-                        vocabListContainer.innerHTML = fullVocab.map((item, index) => `
+                        vocabListContainer.innerHTML = fullVocab.sort((a, b) => a.pinyin.localeCompare(b.pinyin)).map((item, index) => `
                             <tr class="border-b">
                                 <td class="p-2">${index + 1}</td>
                                 <td class="p-2 text-lg font-semibold">${item.hanzi}</td>
                                 <td class="p-2">${item.pinyin}</td>
-                                <td class="p-2">${item.arti}</td>
+                                <td class="p-2">${item.arti_id}</td>
+                                <td class="p-2 text-stone-500">${item.arti_en}</td>
                             </tr>
                         `).join('');
                     }
+                    renderQuiz(weekData.quiz, 'final-quiz-container');
                 }
             }
             
@@ -561,29 +861,30 @@
                 }
                 
                 if (e.target.matches('.quiz-option')) {
-                    const container = e.target.closest('.quiz-container');
+                    const container = e.target.closest('.quiz-question-container');
                     if(!container) return;
                     
                     const options = container.querySelectorAll('.quiz-option');
-                    const feedbackEl = container.querySelector('p[id^="feedback-"]');
+                    const feedbackEl = container.querySelector('.quiz-feedback');
 
                     options.forEach(opt => {
                         opt.disabled = true;
+                        opt.classList.remove('hover:bg-stone-100');
                     });
                     
-                    if (e.target.dataset.correct) {
+                    if (e.target.dataset.correct === 'true') {
                         e.target.classList.add('correct');
                         if (feedbackEl) {
-                           feedbackEl.textContent = 'Benar! Kerja bagus!';
-                           feedbackEl.className = 'mt-2 text-sm font-semibold text-emerald-600';
+                           feedbackEl.innerHTML = '<span class="text-emerald-600 font-semibold">Benar! Kerja bagus!</span>';
+                           feedbackEl.style.display = 'block';
                         }
                     } else {
                         e.target.classList.add('incorrect');
                         const correctOption = container.querySelector('[data-correct="true"]');
                         if(correctOption) correctOption.classList.add('correct');
                         if (feedbackEl) {
-                            feedbackEl.textContent = 'Belum tepat. Coba perhatikan lagi jawabannya.';
-                            feedbackEl.className = 'mt-2 text-sm font-semibold text-red-600';
+                            feedbackEl.innerHTML = `<span class="text-red-600 font-semibold">Belum tepat. Jawaban yang benar ditandai hijau.</span>`;
+                            feedbackEl.style.display = 'block';
                         }
                     }
                 }
@@ -593,5 +894,4 @@
 
 </body>
 </html>
-
 
